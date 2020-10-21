@@ -1,5 +1,5 @@
 import React from 'react';
-import './UserPersonalData.css'
+import './UserPersonalData.css';
 
 class UserPersonalData extends React.Component {
   render() {
