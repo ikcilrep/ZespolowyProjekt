@@ -1,4 +1,5 @@
 import React from 'react';
+import './UserPersonalData.css'
 import ReactDOM from 'react-dom';
 
 class UserPersonalData extends React.Component {
