@@ -10,7 +10,7 @@ class App extends React.Component {
     this.state = {};
   }
 
-  choseLanguage = language => {
+  chooseLanguage = language => {
     this.setState({ language });
     console.log("lang set:", language);
     document.location = "/data";
@@ -20,7 +20,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={() => <LanguageChoice onLanguageChosen={this.choseLanguage} />} />
+          <Route exact path="/" component={() => <LanguageChoice onLanguageChosen={this.chooseLanguage} />} />
           <Route component={Error404} />
         </Switch>
       </BrowserRouter>
