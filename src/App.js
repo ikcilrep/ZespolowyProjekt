@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Reading from "./Components/Reading";
 import Instruction from "./Components/Instruction";
+import UserPersonalData from "./Components/UserPersonalData";
 
 const getInstruction = () => {
   const instruction = {};
@@ -28,6 +29,10 @@ const App = () => {
   };
 
   const onReadText = () => {};
+  const onDataEntered = ({ firstName, lastName, age, sex }) => {
+    // do something with data
+    setRedirect(true);
+  };
   const onReadInstruction = () => {
     setRedirect(true);
   };
@@ -57,6 +62,17 @@ const App = () => {
             <Instruction
               points={instruction[language]}
               onRead={onReadInstruction}
+              nextPagePath="/data"
+              onRedirect={() => setRedirect(false)}
+              redirect={redirect}
+            />
+          )}
+        />
+        <Route
+          path="/data"
+          component={() => (
+            <UserPersonalData
+              onDataEntered={onDataEntered}
               nextPagePath="/reading"
               onRedirect={() => setRedirect(false)}
               redirect={redirect}
