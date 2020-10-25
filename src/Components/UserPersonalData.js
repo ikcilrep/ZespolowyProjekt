@@ -4,18 +4,19 @@ import { useState } from "react";
 import Button from "@material-ui/core/Button";
 import "./UserPersonalData.css";
 
-const UserPersonalData = ({
-  onDataEntered,
-  nextPagePath,
-  onRedirect,
-  redirect,
-}) => {
+const UserPersonalData = ({ onDataEntered, nextPagePath }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState(0);
   const [sex, setSex] = useState("");
+  const [redirect, setRedirect] = useState(false);
+
+  const handleClick = () => {
+    onDataEntered({ firstName, lastName, age, sex });
+    setRedirect(true);
+  };
+
   if (redirect) {
-    onRedirect();
     return <Redirect to={nextPagePath} />;
   }
 
@@ -48,7 +49,7 @@ const UserPersonalData = ({
         </select>
       </label>
       <Button
-        onClick={() => onDataEntered({ firstName, lastName, age, sex })}
+        onClick={handleClick}
         variant="contained"
         color="secondary"
       >

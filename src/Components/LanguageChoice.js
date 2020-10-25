@@ -1,6 +1,6 @@
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import React from "react";
+import React, { useState } from "react";
 import "./LanguageChoice.css";
 import { Redirect } from "react-router-dom";
 
@@ -8,14 +8,15 @@ const POLISH = "Polski";
 const ENGLISH = "English";
 const SPANISH = "Español";
 
-const LanguageChoice = ({
-  onLanguageChosen,
-  onRedirect,
-  nextPagePath,
-  redirect,
-}) => {
+const LanguageChoice = ({ onLanguageChosen, nextPagePath }) => {
+  const [redirect, setRedirect] = useState(false);
+
+  const handleClick = (language) => {
+    onLanguageChosen(language);
+    setRedirect(true);
+  };
+
   if (redirect) {
-    onRedirect();
     return <Redirect to={nextPagePath} />;
   }
 
@@ -28,9 +29,9 @@ const LanguageChoice = ({
           color="primary"
           aria-label="contained primary button group"
         >
-          <Button onClick={() => onLanguageChosen(POLISH)}>{POLISH}</Button>
-          <Button onClick={() => onLanguageChosen(ENGLISH)}>{ENGLISH}</Button>
-          <Button onClick={() => onLanguageChosen(SPANISH)}>{SPANISH}</Button>
+          <Button onClick={() => handleClick(POLISH)}>{POLISH}</Button>
+          <Button onClick={() => handleClick(ENGLISH)}>{ENGLISH}</Button>
+          <Button onClick={() => handleClick(SPANISH)}>{SPANISH}</Button>
         </ButtonGroup>
       </div>
     </div>

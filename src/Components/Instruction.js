@@ -1,18 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Typography } from "@material-ui/core";
 import { Redirect } from "react-router-dom";
 import "./LanguageChoice.css";
 import "./Reading.css";
 
-const Instruction = ({
-  points,
-  onRead,
-  nextPagePath,
-  onRedirect,
-  redirect,
-}) => {
+const Instruction = ({ points, nextPagePath }) => {
+  const [redirect, setRedirect] = useState(false);
+
+  const handleClick = () => {
+    setRedirect(true);
+  };
+
   if (redirect) {
-    onRedirect();
     return <Redirect to={nextPagePath} />;
   }
 
@@ -24,7 +23,7 @@ const Instruction = ({
             {`${index + 1} ${point}`}
           </Typography>
         ))}
-        <Button onClick={onRead} variant="contained" color="secondary">
+        <Button onClick={handleClick} variant="contained" color="secondary">
           OK
         </Button>
       </div>
