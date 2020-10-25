@@ -21,7 +21,9 @@ class App extends React.Component {
   };
 
   onReadText = () => {};
-  onReadInstruction = () => {};
+  onReadInstruction = () => {
+    this.setState({ redirect: true });
+  };
 
   render() {
     const text =
@@ -53,6 +55,9 @@ class App extends React.Component {
               <Instruction
                 points={instruction[this.state.language]}
                 onRead={this.onReadInstruction}
+                nextPagePath="/reading"
+                onRedirect={() => this.setState({ redirect: false })}
+                redirect={this.state.redirect}
               />
             )}
           />
