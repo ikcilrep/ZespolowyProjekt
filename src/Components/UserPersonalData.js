@@ -8,7 +8,7 @@ const Man = 'Man';
 const Woman = 'Woman';
 const Other = 'Other';
 
-const UserPersonalData = ({ onDataEntered, nextPagePath }) => {
+const UserPersonalData = ({ onDataEntered, nextPagePath, language }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState(0);
