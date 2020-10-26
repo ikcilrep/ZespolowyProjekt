@@ -5,9 +5,9 @@ import { ENGLISH, POLISH, SPANISH } from './LanguageChoice';
 import Button from "@material-ui/core/Button";
 import "./UserPersonalData.css";
 
-const Man = 'Man';
-const Woman = 'Woman';
-const Other = 'Other';
+const MAN = 'Man';
+const WOMAN = 'Woman';
+const OTHER = 'Other';
 
 const UserPersonalData = ({ onDataEntered, nextPagePath, language }) => {
   const [firstName, setFirstName] = useState("");
@@ -79,9 +79,9 @@ const UserPersonalData = ({ onDataEntered, nextPagePath, language }) => {
         />
         {dictionary[language].Sex}:
         <select onChange={(e) => setSex(e.target.value)}>
-          <option value={Man}>{dictionary[language].Man}</option>
-          <option value={Woman}>{dictionary[language].Woman}</option>
-          <option value={Other}>{dictionary[language].Other}</option>
+          <option value={MAN}>{dictionary[language].Man}</option>
+          <option value={WOMAN}>{dictionary[language].Woman}</option>
+          <option value={OTHER}>{dictionary[language].Other}</option>
         </select>
       </label>
       <Button
@@ -95,5 +95,5 @@ const UserPersonalData = ({ onDataEntered, nextPagePath, language }) => {
   );
 };
 
-export { Man, Woman, Other };
+export { MAN, WOMAN, OTHER };
 export default UserPersonalData;
