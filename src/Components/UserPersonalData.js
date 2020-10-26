@@ -1,15 +1,50 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import { useState } from "react";
+import { ENGLISH, POLISH, SPANISH } from './LanguageChoice';
 import Button from "@material-ui/core/Button";
 import "./UserPersonalData.css";
 
-const UserPersonalData = ({ onDataEntered, nextPagePath }) => {
+const MAN = 'Man';
+const WOMAN = 'Woman';
+const OTHER = 'Other';
+
+const UserPersonalData = ({ onDataEntered, nextPagePath, language }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState(0);
   const [sex, setSex] = useState("");
   const [redirect, setRedirect] = useState(false);
+
+  const dictionary = {};
+  dictionary[ENGLISH] = {
+    Man: 'Man',
+    Woman: 'Woman',
+    Other: 'Other',
+    FirstName: 'First name',
+    LastName: 'Last name',
+    Age: 'Age',
+    Sex: 'Sex'
+  };
+  dictionary[POLISH] = {
+    Man: 'Mężczyzna',
+    Woman: 'Kobieta',
+    Other: 'Inny',
+    FirstName: 'Imię',
+    LastName: 'Nazwisko',
+    Age: 'Wiek',
+    Sex: 'Płeć'
+  };
+
+  dictionary[SPANISH] = {
+    Man: 'Hombre',
+    Woman: 'Mujer',
+    Other: 'Diferente',
+    FirstName: 'Nombre',
+    LastName: 'Apellido',
+    Age: 'Años',
+    Sex: 'Sexo'
+  };
 
   const handleClick = () => {
     onDataEntered({ firstName, lastName, age, sex });
@@ -23,29 +58,30 @@ const UserPersonalData = ({ onDataEntered, nextPagePath }) => {
   return (
     <div style={{ color: "white" }}>
       <label>
-        {}
+        {dictionary[language].FirstName}:
         <input
           onChange={(e) => setFirstName(e.target.value)}
           type="text"
           name="name"
         />
-        Nazwisko:
+        {dictionary[language].LastName}:
         <input
           onChange={(e) => setLastName(e.target.value)}
           type="text"
           name="surname"
         />
-        Wiek:
+
+        {dictionary[language].Age}:
         <input
           onChange={(e) => setAge(e.target.value)}
           type="number"
           name="age"
         />
-        Płeć:
+        {dictionary[language].Sex}:
         <select onChange={(e) => setSex(e.target.value)}>
-          <option value="Men">Mężczyzna</option>
-          <option value="Woman">Kobieta</option>
-          <option value="Other">Inny</option>
+          <option value={MAN}>{dictionary[language].Man}</option>
+          <option value={WOMAN}>{dictionary[language].Woman}</option>
+          <option value={OTHER}>{dictionary[language].Other}</option>
         </select>
       </label>
       <Button
@@ -53,10 +89,11 @@ const UserPersonalData = ({ onDataEntered, nextPagePath }) => {
         variant="contained"
         color="secondary"
       >
-        Send
+        Ok
       </Button>
     </div>
   );
 };
 
+export { MAN, WOMAN, OTHER };
 export default UserPersonalData;

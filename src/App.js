@@ -58,6 +58,7 @@ const App = () => {
           path="/data"
           component={() => (
             <UserPersonalData
+              language={language}
               onDataEntered={onDataEntered}
               nextPagePath="/reading"
             />
