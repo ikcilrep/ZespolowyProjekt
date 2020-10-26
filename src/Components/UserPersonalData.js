@@ -4,6 +4,10 @@ import { useState } from "react";
 import Button from "@material-ui/core/Button";
 import "./UserPersonalData.css";
 
+const Man = 'Man';
+const Woman = 'Woman';
+const Other = 'Other';
+
 const UserPersonalData = ({ onDataEntered, nextPagePath }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -43,9 +47,9 @@ const UserPersonalData = ({ onDataEntered, nextPagePath }) => {
         />
         Płeć:
         <select onChange={(e) => setSex(e.target.value)}>
-          <option value="Men">Mężczyzna</option>
-          <option value="Woman">Kobieta</option>
-          <option value="Other">Inny</option>
+          <option value={Man}>Mężczyzna</option>
+          <option value={Woman}>Kobieta</option>
+          <option value={Other}>Inny</option>
         </select>
       </label>
       <Button
@@ -59,4 +63,5 @@ const UserPersonalData = ({ onDataEntered, nextPagePath }) => {
   );
 };
 
+export { Man, Woman, Other };
 export default UserPersonalData;
