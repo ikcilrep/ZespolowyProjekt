@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Reading from "./Components/Reading";
 import Instruction from "./Components/Instruction";
+import Baloon from "./Components/Baloon";
 import UserPersonalData from "./Components/UserPersonalData";
 
 const getInstruction = () => {
@@ -66,7 +67,11 @@ const App = () => {
         />
         <Route
           path="/reading"
-          component={() => <Reading text={text} />}
+          component={() => <Reading text={text} nextPagePath="/game" />}
+        />
+        <Route
+          path="/game"
+          component={() => <Baloon />}
         />
         <Route component={Error404} />
       </Switch>

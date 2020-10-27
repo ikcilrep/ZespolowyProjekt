@@ -56,7 +56,7 @@ const UserPersonalData = ({ onDataEntered, nextPagePath, language }) => {
   }
 
   return (
-    <div style={{ color: "white" }}>
+    <div style={{ color: "black" }}>
       <label>
         {dictionary[language].FirstName}:
         <input

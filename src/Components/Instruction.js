@@ -17,7 +17,7 @@ const Instruction = ({ points, nextPagePath }) => {
 
   return (
     <>
-      <div className="reading centered" style={{ color: "white" }}>
+      <div className="reading centered" style={{ color: "black" }}>
         {points.map((point, index) => (
           <Typography variant="h5" component="h5" key={index}>
             {`${index + 1} ${point}`}
