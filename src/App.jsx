@@ -71,7 +71,7 @@ const App = () => {
         />
         <Route
           path="/game"
-          component={() => <Game />}
+          component={() => <Game language={language} />}
         />
         <Route component={Error404} />
       </Switch>

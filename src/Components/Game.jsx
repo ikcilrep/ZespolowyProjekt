@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Baloon from './Baloon';
+import { ENGLISH, POLISH, SPANISH } from './LanguageChoice';
 
 const NUMBER_OF_BALOONS = 5;
 
-const Game = () => {
+const Game = ({ language }) => {
     const [collectedMoney, setCollectedMoney] = useState(0);
     const [prize, setPrize] = useState(0);
     const [baloonNumber, setBaloonNumber] = useState(0);
@@ -25,20 +26,29 @@ const Game = () => {
         setBaloonNumber(baloonNumber + 1);
     };
 
+    const dictionary = {};
+
+    dictionary[ENGLISH] = { collectedMoney: "Collected money", expectedPrize: "Expected prize" };
+    dictionary[POLISH] = { collectedMoney: "Zebrane pieniądze", expectedPrize: "Oczekiwana nagroda" };
+    dictionary[SPANISH] = { collectedMoney: "Dinero recolectado", expectedPrize: "Recompensa esperada" };
+
+
+
     if (baloonNumber < NUMBER_OF_BALOONS) {
         return (<div>
-            <h3>Collected money: {collectedMoney}$</h3>
-            <h4>Expected prize: {prize}$</h4>
+            <h3>{dictionary[language].collectedMoney}: {collectedMoney}$</h3>
+            <h4>{dictionary[language].expectedPrize}: {prize}$</h4>
             <h5>{baloonNumber}/{NUMBER_OF_BALOONS}</h5>
             <Baloon numberOfBaloons={NUMBER_OF_BALOONS}
                 number={baloonNumber}
                 onSuccessfulPump={onSuccessfulPump}
                 onExplosion={onExplosion}
-                onResign={onResign} />
+                onResign={onResign}
+                language={language} />
         </div>);
     } else {
         return (<div className="centered">
-            <h1>Collected money: {collectedMoney}$</h1>
+            <h1>{dictionary[language].collectedMoney}: {collectedMoney}$</h1>
         </div>);
     }
 };

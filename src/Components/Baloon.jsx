@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
+import { ENGLISH, POLISH, SPANISH } from './LanguageChoice';
 import "./Baloon.css";
 import "./LanguageChoice.css";
 
-export default function Baloon({ onSuccessfulPump, onExplosion, number, numberOfBaloons, onResign }) {
+export default function Baloon({ language, onSuccessfulPump, onExplosion, number, numberOfBaloons, onResign }) {
   const [pump, setPump] = useState(0);
   const [pumps, setPumps] = useState(0);
   const handleClick = () => {
@@ -27,10 +28,16 @@ export default function Baloon({ onSuccessfulPump, onExplosion, number, numberOf
     onResign();
   };
 
+  const dictionary = {};
+
+  dictionary[ENGLISH] = { next: "Next" };
+  dictionary[POLISH] = { next: "Następny" };
+  dictionary[SPANISH] = { next: "Siguiente" };
+
   return (
     <div>
       <Button onClick={handleResign} variant="contained" color="secondary">
-        {number < numberOfBaloons - 1 ? "Next" : "OK"}
+        {number < numberOfBaloons - 1 ? dictionary[language].next : "OK"}
       </Button>
 
 
