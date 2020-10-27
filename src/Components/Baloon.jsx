@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import Button from "@material-ui/core/Button";
 import "./Baloon.css";
+import "./LanguageChoice.css";
 
-export default function Baloon({ onSuccessfulPump, onExplosion }) {
+export default function Baloon({ onSuccessfulPump, onExplosion, number, numberOfBaloons, onResign }) {
   const [pump, setPump] = useState(0);
   const [pumps, setPumps] = useState(0);
   const handleClick = () => {
@@ -20,8 +22,18 @@ export default function Baloon({ onSuccessfulPump, onExplosion }) {
     setPump(0);
   };
 
+  const handleResign = () => {
+    setPump(0);
+    onResign();
+  };
+
   return (
     <div>
+      <Button onClick={handleResign} variant="contained" color="secondary">
+        {number < numberOfBaloons - 1 ? "Next" : "OK"}
+      </Button>
+
+
       <div className="container" onClick={handleClick} onAnimationEnd={handleAnimationEnd} pump={pump} pumps={pumps}>
         <div className="ground" pump={pump}></div>
         <div className="hose" pump={pump}></div>
