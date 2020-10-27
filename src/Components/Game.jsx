@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Baloon from './Baloon';
 import { ENGLISH, POLISH, SPANISH } from './LanguageChoice';
 
+
 const NUMBER_OF_BALOONS = 5;
 
 const Game = ({ language }) => {
@@ -44,7 +45,7 @@ const Game = ({ language }) => {
                 onSuccessfulPump={onSuccessfulPump}
                 onExplosion={onExplosion}
                 onResign={onResign}
-                language={language} />
+                language={language}/>
         </div>);
     } else {
         return (<div className="centered">

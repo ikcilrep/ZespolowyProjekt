@@ -7,9 +7,12 @@ import "./LanguageChoice.css";
 export default function Baloon({ language, onSuccessfulPump, onExplosion, number, numberOfBaloons, onResign }) {
   const [pump, setPump] = useState(0);
   const [pumps, setPumps] = useState(0);
+  const [pop, setPop] = useState(0)
+
   const handleClick = () => {
     setPump(1);
     if (pumps % 4 === 3) {
+      setPop(1)
       onExplosion();
     } else {
       onSuccessfulPump();
@@ -25,6 +28,7 @@ export default function Baloon({ language, onSuccessfulPump, onExplosion, number
 
   const handleResign = () => {
     setPump(0);
+    setPop(1)
     onResign();
   };
 
@@ -51,7 +55,7 @@ export default function Baloon({ language, onSuccessfulPump, onExplosion, number
           <div className="stamp-balloon" pump={pump}></div>
           <div className="stamp-triangle" pump={pump}></div>
         </div>
-        <div className="baloon" pump={pump} pumps={pumps}></div>
+        <div className="baloon" pump={pump} pumps={pumps} pop={pop} onAnimationEnd={() => {setPop(0)}}></div>
       </div>
     </div>
   );
