@@ -111,7 +111,10 @@ body{
 
 .baloon[pump='0'] {
 	animation-play-state: paused;
+}
 
+.baloon[pop='1']{
+	animation: pop 2s 1;
 }
 
 .ground{
@@ -129,6 +132,15 @@ body{
 	0%{top:0px;}
 	50%{top:100px;}
 	100%{top:0px;}
+}
+
+@keyframes pop{
+	from{
+		width:210px; height: 300px; top:-35pt; left: 565px;transform: rotate(-140deg);
+	}
+	to{
+		width:280px; height: 400px; top:-800pt; left: 570px;transform: rotate(-200deg);
+	}
 }
 
 @keyframes wait{
