@@ -14,9 +14,27 @@ import UserPersonalData from "./Components/UserPersonalData";
 
 const getInstruction = () => {
   const instruction = {};
-  instruction[POLISH] = ["Zrób coś", "Zrób coś innego"];
-  instruction[ENGLISH] = ["Do something", "Do something different"];
-  instruction[SPANISH] = ["Hacer algo", "Hacer algo más"];
+  instruction[POLISH] = [
+    "Wpisz dane osobowe.",
+    "Przeczytaj tekst.",
+    "Odpowiedz na pytania.",
+    "Pompuj balonika zarabiając pieniądze i ryzykując, że pęknie albo weź pieniądze, które zarobiłeś dotychczas.",
+    "Powtórz punkt powyższy na pięciu balonikach.",
+  ];
+  instruction[ENGLISH] = [
+    "Enter personal data.",
+    "Read the text.",
+    "Answer the questions.",
+    "Pump the balloon earning money and risking it'll pop or take the money you earned.",
+    "Repeat the above on five baloons.",
+  ];
+  instruction[SPANISH] = [
+    "Ingrese datos personales.",
+    "Lee el texto.",
+    "Responde a las preguntas.",
+    "Bombea el globo ganando dinero y arriesgando que explote o se lleve el dinero que ganaste.",
+    "Repite lo anterior en cinco globos.",
+  ];
   return instruction;
 };
 
@@ -69,10 +87,7 @@ const App = () => {
           path="/reading"
           component={() => <Reading text={text} nextPagePath="/game" />}
         />
-        <Route
-          path="/game"
-          component={() => <Game language={language} />}
-        />
+        <Route path="/game" component={() => <Game language={language} />} />
         <Route component={Error404} />
       </Switch>
     </BrowserRouter>

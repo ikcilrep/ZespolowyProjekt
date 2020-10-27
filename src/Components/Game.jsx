@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Baloon from './Baloon';
+import Balloon from './Balloon';
 import { ENGLISH, POLISH, SPANISH } from './LanguageChoice';
 
 
-const NUMBER_OF_BALOONS = 5;
+const NUMBER_OF_BALLOONS = 5;
 
 const Game = ({ language }) => {
     const [collectedMoney, setCollectedMoney] = useState(0);
@@ -35,12 +35,12 @@ const Game = ({ language }) => {
 
 
 
-    if (baloonNumber < NUMBER_OF_BALOONS) {
+    if (baloonNumber < NUMBER_OF_BALLOONS) {
         return (<div>
             <h3>{dictionary[language].collectedMoney}: {collectedMoney}$</h3>
             <h4>{dictionary[language].expectedPrize}: {prize}$</h4>
-            <h5>{baloonNumber}/{NUMBER_OF_BALOONS}</h5>
-            <Baloon numberOfBaloons={NUMBER_OF_BALOONS}
+            <h5>{baloonNumber}/{NUMBER_OF_BALLOONS}</h5>
+            <Balloon numberOfBaloons={NUMBER_OF_BALLOONS}
                 number={baloonNumber}
                 onSuccessfulPump={onSuccessfulPump}
                 onExplosion={onExplosion}
