@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Baloon.css";
 
 export default function Baloon({ onSuccessfulPump, onExplosion }) {
-  const [pump, setPump] = React.useState(0);
-  const [pumps, setPumps] = React.useState(0);
+  const [pump, setPump] = useState(0);
+  const [pumps, setPumps] = useState(0);
   const handleClick = () => {
     setPump(1);
-    if (pumps % 5 === 4) {
+    if (pumps % 4 === 3) {
       onExplosion();
     } else {
       onSuccessfulPump();
     }
-    setPumps(pumps + 1);
 
+    setPumps(pumps + 1);
   };
+
 
   const handleAnimationEnd = () => {
     setPump(0);
