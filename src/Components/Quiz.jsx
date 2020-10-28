@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import "./Quiz.css";
 import { Button } from "@material-ui/core";
+
 import { ENGLISH, SPANISH, POLISH } from "./LanguageChoice";
 
 export default function Quiz({ nextPagePath, language }) {
@@ -134,11 +135,13 @@ export default function Quiz({ nextPagePath, language }) {
       <div className="app">
         {showScore ? (
           <div className="score-section">
+
             {youScored[language]} {score} {outOf[language]} {questions.length}
             <Button
               onClick={() => setRedirect(true)}
               variant="contained"
               color="secondary"
+              id="confirmbutton"
             >
               OK
             </Button>

@@ -24,3 +24,9 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #45a049;
 }
+
+#personaldataform {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
