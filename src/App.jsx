@@ -25,7 +25,6 @@ const App = () => {
   const text =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
-  console.log(dictionary[cookies["language"]].instruction);
   const instruction = dictionary[cookies["language"]].instruction;
 
   return (
@@ -37,15 +36,6 @@ const App = () => {
           component={() => (
             <LanguageChoice
               onLanguageChosen={chooseLanguage}
-              nextPagePath="/instruction"
-            />
-          )}
-        />
-        <Route
-          path="/instruction"
-          component={() => (
-            <Instruction
-              points={instruction}
               nextPagePath="/data"
             />
           )}
@@ -56,6 +46,15 @@ const App = () => {
             <UserPersonalData
               language={cookies["language"]}
               onDataEntered={onDataEntered}
+              nextPagePath="/instruction"
+            />
+          )}
+        />
+        <Route
+          path="/instruction"
+          component={() => (
+            <Instruction
+              points={instruction}
               nextPagePath="/reading"
             />
           )}

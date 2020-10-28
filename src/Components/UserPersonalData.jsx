@@ -1,8 +1,8 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import { useState } from "react";
-import { ENGLISH, POLISH, SPANISH } from "./LanguageChoice";
 import Button from "@material-ui/core/Button";
+import dictionary from "../dictionary.json";
 import "./UserPersonalData.css";
 
 const MAN = "Man";
@@ -15,36 +15,6 @@ const UserPersonalData = ({ onDataEntered, nextPagePath, language }) => {
   const [age, setAge] = useState(0);
   const [sex, setSex] = useState("");
   const [redirect, setRedirect] = useState(false);
-
-  const dictionary = {};
-  dictionary[ENGLISH] = {
-    Man: "Man",
-    Woman: "Woman",
-    Other: "Other",
-    FirstName: "First name",
-    LastName: "Last name",
-    Age: "Age",
-    Sex: "Sex",
-  };
-  dictionary[POLISH] = {
-    Man: "Mężczyzna",
-    Woman: "Kobieta",
-    Other: "Inny",
-    FirstName: "Imię",
-    LastName: "Nazwisko",
-    Age: "Wiek",
-    Sex: "Płeć",
-  };
-
-  dictionary[SPANISH] = {
-    Man: "Hombre",
-    Woman: "Mujer",
-    Other: "Diferente",
-    FirstName: "Nombre",
-    LastName: "Apellido",
-    Age: "Años",
-    Sex: "Sexo",
-  };
 
   const handleClick = () => {
     onDataEntered({ firstName, lastName, age, sex });
