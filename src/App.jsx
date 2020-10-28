@@ -95,7 +95,7 @@ const App = () => {
          <Route
           path="/quiz"
           component={() => (
-            <Quiz nextPagePath="/game" language={language} />
+            <Quiz nextPagePath="/game" language={cookies["language"]} />
           )}
           />
 
