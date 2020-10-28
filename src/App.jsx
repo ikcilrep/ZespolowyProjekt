@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import LanguageChoice, {
   POLISH,
   ENGLISH,
@@ -12,6 +12,7 @@ import Instruction from "./Components/Instruction";
 import Quiz from "./Components/Quiz";
 import Game from "./Components/Game";
 import UserPersonalData from "./Components/UserPersonalData";
+import { useCookies } from "react-cookie";
 
 const getInstruction = () => {
   const instruction = {};
@@ -40,10 +41,10 @@ const getInstruction = () => {
 };
 
 const App = () => {
-  const [language, setLanguage] = useState(ENGLISH);
+  const [cookies, setCookie] = useCookies(["language"]);
 
   const chooseLanguage = (language) => {
-    setLanguage(language);
+    setCookie("language", language);
   };
 
   const onDataEntered = ({ firstName, lastName, age, sex }) => {
@@ -71,14 +72,17 @@ const App = () => {
         <Route
           path="/instruction"
           component={() => (
-            <Instruction points={instruction[language]} nextPagePath="/data" />
+            <Instruction
+              points={instruction[cookies["language"]]}
+              nextPagePath="/data"
+            />
           )}
         />
         <Route
           path="/data"
           component={() => (
             <UserPersonalData
-              language={language}
+              language={cookies["language"]}
               onDataEntered={onDataEntered}
               nextPagePath="/reading"
             />
@@ -94,7 +98,11 @@ const App = () => {
             <Quiz nextPagePath="/game" language={language} />
           )}
           />
-        <Route path="/game" component={() => <Game language={language} />} />
+
+        <Route
+          path="/game"
+          component={() => <Game language={cookies["language"]} />}
+        />
         <Route component={Error404} />
       </Switch>
     </BrowserRouter>
