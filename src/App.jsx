@@ -91,7 +91,7 @@ const App = () => {
          <Route
           path="/quiz"
           component={() => (
-            <Quiz language={language} nextPagePath="/game" />
+            <Quiz nextPagePath="/game" language={language} />
           )}
           />
         <Route path="/game" component={() => <Game language={language} />} />

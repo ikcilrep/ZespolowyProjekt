@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import "./Quiz.css";
 import { Button} from "@material-ui/core";
 
-export default function Quiz(langue, nextPagePath) {
+export default function Quiz(nextPagePath,langue) {
 	const questions = [
 		{
 			questionText: 'What is the capital of France?',
@@ -41,13 +41,26 @@ export default function Quiz(langue, nextPagePath) {
 				{ answerText: '7', isCorrect: true },
 			],
 		},
+		{
+			questionText: 'Will this work?',
+			answerOptions: [
+				{ answerText: 'Yes', isCorrect: false },
+				{ answerText: 'No', isCorrect: false },
+				{ answerText: 'Maybe', isCorrect: false },
+				{ answerText: 'All answers are correct', isCorrect: true },
+			],
+		},
 	];
   	
 
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
+	const [redirect, setRedirect] = useState(false);
 	const [score, setScore] = useState(0);
-
+	
+	if (redirect) {
+    	return <Redirect to={nextPagePath} />;
+  }
 	const handleAnswerOptionClick = (isCorrect) => {
 		if (isCorrect) {
 			setScore(score + 1);
@@ -65,7 +78,7 @@ export default function Quiz(langue, nextPagePath) {
 			{showScore ? (
 				<div className='score-section'>
 					You scored {score} out of {questions.length}
-					<Button onClick={() => <Redirect to={nextPagePath} />} variant="contained" color="secondary">OK</Button>
+					<Button onClick={() => setRedirect(true) } variant="contained" color="secondary">OK</Button>
 				</div>
 			) : (
 				<>
