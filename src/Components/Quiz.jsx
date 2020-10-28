@@ -35,6 +35,21 @@ export default function Quiz({ nextPagePath, language }) {
   answers1[SPANISH] = ["Nueva York", "Londres", "París", "Dublín"];
   answers1[POLISH] = ["Nowy Jork", "Londyn", "Paryż", "Dublin"];
 
+  const answers5 = {};
+  answers5[ENGLISH] = ["Yes", "No", "Maybe", "All answers are correct"];
+  answers5[SPANISH] = [
+    "Si",
+    "No",
+    "Tal vez",
+    "Todas las respuestas son correctas",
+  ];
+  answers5[POLISH] = [
+    "Tak",
+    "Nie",
+    "Może",
+    "Wszystkie odpowiedzi są prawidłowe",
+  ];
+
   const questions = [
     {
       questionText: question1[language],
@@ -75,10 +90,10 @@ export default function Quiz({ nextPagePath, language }) {
     {
       questionText: question5[language],
       answerOptions: [
-        { answerText: "Yes", isCorrect: false },
-        { answerText: "No", isCorrect: false },
-        { answerText: "Maybe", isCorrect: false },
-        { answerText: "All answers are correct", isCorrect: true },
+        { answerText: answers5[language][0], isCorrect: false },
+        { answerText: answers5[language][1], isCorrect: false },
+        { answerText: answers5[language][2], isCorrect: false },
+        { answerText: answers5[language][3], isCorrect: true },
       ],
     },
   ];
