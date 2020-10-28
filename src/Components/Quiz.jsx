@@ -23,21 +23,26 @@ export default function Quiz({ nextPagePath, language }) {
   const question4 = {};
   question4[ENGLISH] = "How many Harry Potter books are there?";
   question4[SPANISH] = "¿Cuántos libros de Harry Potter hay?";
-  question4[POLISH] = "Ile jesto książek Harrego Pottera?";
+  question4[POLISH] = "Ile jest książek Harrego Pottera?";
 
   const question5 = {};
   question5[ENGLISH] = "Will this work?";
   question5[SPANISH] = "¿Funcionará?";
   question5[POLISH] = "Czy to będzie działać?";
 
+  const answers1 = {};
+  answers1[ENGLISH] = ["New York", "London", "Paris", "Dublin"];
+  answers1[SPANISH] = ["Nueva York", "Londres", "París", "Dublín"];
+  answers1[POLISH] = ["Nowy Jork", "Londyn", "Paryż", "Dublin"];
+
   const questions = [
     {
       questionText: question1[language],
       answerOptions: [
-        { answerText: "New York", isCorrect: false },
-        { answerText: "London", isCorrect: false },
-        { answerText: "Paris", isCorrect: true },
-        { answerText: "Dublin", isCorrect: false },
+        { answerText: answers1[language][0], isCorrect: false },
+        { answerText: answers1[language][1], isCorrect: false },
+        { answerText: answers1[language][2], isCorrect: true },
+        { answerText: answers1[language][3], isCorrect: false },
       ],
     },
     {
