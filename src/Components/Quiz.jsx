@@ -5,7 +5,7 @@ import { Button } from "@material-ui/core";
 
 import { ENGLISH, SPANISH, POLISH } from "./LanguageChoice";
 
-export default function Quiz({ nextPagePath, language }) {
+const getQuestions = (language) => {
   const dictionary = {};
   dictionary[ENGLISH] = {};
   dictionary[SPANISH] = {};
@@ -102,10 +102,16 @@ export default function Quiz({ nextPagePath, language }) {
     },
   ];
 
+  return questions;
+};
+
+export default function Quiz({ nextPagePath, language }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [redirect, setRedirect] = useState(false);
   const [score, setScore] = useState(0);
+
+  const questions = getQuestions(language);
 
   if (redirect) {
     return <Redirect to={nextPagePath} />;
@@ -122,6 +128,11 @@ export default function Quiz({ nextPagePath, language }) {
       setShowScore(true);
     }
   };
+
+  const dictionary = {};
+  dictionary[ENGLISH] = {};
+  dictionary[SPANISH] = {};
+  dictionary[POLISH] = {};
 
   dictionary[ENGLISH].youScored = "You scored";
   dictionary[SPANISH].youScored = "Lo tienes";
