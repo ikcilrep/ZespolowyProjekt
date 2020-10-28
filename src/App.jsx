@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Reading from "./Components/Reading";
 import Instruction from "./Components/Instruction";
+import Quiz from "./Components/Quiz";
 import Game from "./Components/Game";
 import UserPersonalData from "./Components/UserPersonalData";
 import { useCookies } from "react-cookie";
@@ -89,8 +90,15 @@ const App = () => {
         />
         <Route
           path="/reading"
-          component={() => <Reading text={text} nextPagePath="/game" />}
+          component={() => <Reading text={text} nextPagePath="/quiz" />}
         />
+         <Route
+          path="/quiz"
+          component={() => (
+            <Quiz nextPagePath="/game" language={language} />
+          )}
+          />
+
         <Route
           path="/game"
           component={() => <Game language={cookies["language"]} />}
