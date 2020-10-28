@@ -6,45 +6,48 @@ import { Button } from "@material-ui/core";
 import { ENGLISH, SPANISH, POLISH } from "./LanguageChoice";
 
 export default function Quiz({ nextPagePath, language }) {
-  const question1 = {};
-  question1[ENGLISH] = "What is the capital of France?";
-  question1[SPANISH] = "¿Cuál es la capital de Francia?";
-  question1[POLISH] = "Jaka jest stolica francji?";
+  const dictionary = {};
+  dictionary[ENGLISH] = {};
+  dictionary[SPANISH] = {};
+  dictionary[POLISH] = {};
 
-  const question2 = {};
-  question2[ENGLISH] = "Who is CEO of Tesla?";
-  question2[SPANISH] = "¿Quién es el CEO de Tesla?";
-  question2[POLISH] = "Kto jest CEO Tesli?";
+  dictionary[ENGLISH].question1 = "What is the capital of France?";
+  dictionary[SPANISH].question1 = "¿Cuál es la capital de Francia?";
+  dictionary[POLISH].question1 = "Jaka jest stolica francji?";
 
-  const question3 = {};
-  question3[ENGLISH] = "The iPhone was created by which company?";
-  question3[SPANISH] = "¿Qué empresa creó el iPhone?";
-  question3[POLISH] = "Przez którą firmę został stworzony iPhone?";
+  dictionary[ENGLISH].question2 = "Who is CEO of Tesla?";
+  dictionary[SPANISH].question2 = "¿Quién es el CEO de Tesla?";
+  dictionary[POLISH].question2 = "Kto jest CEO Tesli?";
 
-  const question4 = {};
-  question4[ENGLISH] = "How many Harry Potter books are there?";
-  question4[SPANISH] = "¿Cuántos libros de Harry Potter hay?";
-  question4[POLISH] = "Ile jest książek Harrego Pottera?";
+  dictionary[ENGLISH].question3 = "The iPhone was created by which company?";
+  dictionary[SPANISH].question3 = "¿Qué empresa creó el iPhone?";
+  dictionary[POLISH].question3 = "Przez którą firmę został stworzony iPhone?";
 
-  const question5 = {};
-  question5[ENGLISH] = "Will this work?";
-  question5[SPANISH] = "¿Funcionará?";
-  question5[POLISH] = "Czy to będzie działać?";
+  dictionary[ENGLISH].question4 = "How many Harry Potter books are there?";
+  dictionary[SPANISH].question4 = "¿Cuántos libros de Harry Potter hay?";
+  dictionary[POLISH].question4 = "Ile jest książek Harrego Pottera?";
 
-  const answers1 = {};
-  answers1[ENGLISH] = ["New York", "London", "Paris", "Dublin"];
-  answers1[SPANISH] = ["Nueva York", "Londres", "París", "Dublín"];
-  answers1[POLISH] = ["Nowy Jork", "Londyn", "Paryż", "Dublin"];
+  dictionary[ENGLISH].question5 = "Will this work?";
+  dictionary[SPANISH].question5 = "¿Funcionará?";
+  dictionary[POLISH].question5 = "Czy to będzie działać?";
 
-  const answers5 = {};
-  answers5[ENGLISH] = ["Yes", "No", "Maybe", "All answers are correct"];
-  answers5[SPANISH] = [
+  dictionary[ENGLISH].answers1 = ["New York", "London", "Paris", "Dublin"];
+  dictionary[SPANISH].answers1 = ["Nueva York", "Londres", "París", "Dublín"];
+  dictionary[POLISH].answers1 = ["Nowy Jork", "Londyn", "Paryż", "Dublin"];
+
+  dictionary[ENGLISH].answers5 = [
+    "Yes",
+    "No",
+    "Maybe",
+    "All answers are correct",
+  ];
+  dictionary[SPANISH].answers5 = [
     "Si",
     "No",
     "Tal vez",
     "Todas las respuestas son correctas",
   ];
-  answers5[POLISH] = [
+  dictionary[POLISH].answers5 = [
     "Tak",
     "Nie",
     "Może",
@@ -53,16 +56,16 @@ export default function Quiz({ nextPagePath, language }) {
 
   const questions = [
     {
-      questionText: question1[language],
+      questionText: dictionary[language].question1,
       answerOptions: [
-        { answerText: answers1[language][0], isCorrect: false },
-        { answerText: answers1[language][1], isCorrect: false },
-        { answerText: answers1[language][2], isCorrect: true },
-        { answerText: answers1[language][3], isCorrect: false },
+        { answerText: dictionary[language].answers1[0], isCorrect: false },
+        { answerText: dictionary[language].answers1[1], isCorrect: false },
+        { answerText: dictionary[language].answers1[2], isCorrect: true },
+        { answerText: dictionary[language].answers1[3], isCorrect: false },
       ],
     },
     {
-      questionText: question2[language],
+      questionText: dictionary[language].question2,
       answerOptions: [
         { answerText: "Jeff Bezos", isCorrect: false },
         { answerText: "Elon Musk", isCorrect: true },
@@ -71,7 +74,7 @@ export default function Quiz({ nextPagePath, language }) {
       ],
     },
     {
-      questionText: question3[language],
+      questionText: dictionary[language].question3,
       answerOptions: [
         { answerText: "Apple", isCorrect: true },
         { answerText: "Intel", isCorrect: false },
@@ -80,7 +83,7 @@ export default function Quiz({ nextPagePath, language }) {
       ],
     },
     {
-      questionText: question4[language],
+      questionText: dictionary[language].question4,
       answerOptions: [
         { answerText: "1", isCorrect: false },
         { answerText: "4", isCorrect: false },
@@ -89,12 +92,12 @@ export default function Quiz({ nextPagePath, language }) {
       ],
     },
     {
-      questionText: question5[language],
+      questionText: dictionary[language].question5,
       answerOptions: [
-        { answerText: answers5[language][0], isCorrect: false },
-        { answerText: answers5[language][1], isCorrect: false },
-        { answerText: answers5[language][2], isCorrect: false },
-        { answerText: answers5[language][3], isCorrect: true },
+        { answerText: dictionary[language].answers5[0], isCorrect: false },
+        { answerText: dictionary[language].answers5[1], isCorrect: false },
+        { answerText: dictionary[language].answers5[2], isCorrect: false },
+        { answerText: dictionary[language].answers5[3], isCorrect: true },
       ],
     },
   ];
@@ -120,23 +123,21 @@ export default function Quiz({ nextPagePath, language }) {
     }
   };
 
-  const youScored = {};
-  youScored[ENGLISH] = "You scored";
-  youScored[POLISH] = "Zdobyłeś";
-  youScored[SPANISH] = "Lo tienes";
+  dictionary[ENGLISH].youScored = "You scored";
+  dictionary[SPANISH].youScored = "Lo tienes";
+  dictionary[POLISH].youScored = "Zdobyłeś";
 
-  const outOf = {};
-  outOf[ENGLISH] = "out of";
-  outOf[POLISH] = "z";
-  outOf[SPANISH] = "de";
+  dictionary[ENGLISH].outOf = "out of";
+  dictionary[SPANISH].outOf = "de";
+  dictionary[POLISH].outOf = "z";
 
   return (
     <div className="quiz">
       <div className="app">
         {showScore ? (
           <div className="score-section">
-
-            {youScored[language]} {score} {outOf[language]} {questions.length}
+            {dictionary[language].youScored} {score}{" "}
+            {dictionary[language].outOf} {questions.length}
             <Button
               onClick={() => setRedirect(true)}
               variant="contained"
