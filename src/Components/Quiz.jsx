@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import "./Quiz.css";
 import { Button} from "@material-ui/core";
 
-export default function Quiz(nextPagePath,langue) {
+export default function Quiz({nextPagePath,langue}) {
 	const questions = [
 		{
 			questionText: 'What is the capital of France?',
@@ -74,6 +74,7 @@ export default function Quiz(nextPagePath,langue) {
 		}
 	};
 	return (
+		<div className='quiz'>
 		<div className='app'>
 			{showScore ? (
 				<div className='score-section'>
@@ -95,6 +96,7 @@ export default function Quiz(nextPagePath,langue) {
 					</div>
 				</>
 			)}
+		</div>
 		</div>
 	);
 }
