@@ -36,9 +36,6 @@ export default function Balloon({
     setPump(0);
     setPop(1);
     onResign();
-    const baloon = document.querySelector('.baloon');
-    baloon.classList.remove('baloon');
-    baloon.classList.add('baloon');
   };
 
   return (
