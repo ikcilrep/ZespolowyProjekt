@@ -37,15 +37,6 @@ const App = () => {
           component={() => (
             <LanguageChoice
               onLanguageChosen={chooseLanguage}
-              nextPagePath="/instruction"
-            />
-          )}
-        />
-        <Route
-          path="/instruction"
-          component={() => (
-            <Instruction
-              points={instruction}
               nextPagePath="/data"
             />
           )}
@@ -56,6 +47,15 @@ const App = () => {
             <UserPersonalData
               language={cookies["language"]}
               onDataEntered={onDataEntered}
+              nextPagePath="/instruction"
+            />
+          )}
+        />
+        <Route
+          path="/instruction"
+          component={() => (
+            <Instruction
+              points={instruction}
               nextPagePath="/reading"
             />
           )}
