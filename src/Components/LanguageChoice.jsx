@@ -1,6 +1,6 @@
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./LanguageChoice.css";
 import { Redirect } from "react-router-dom";
 
@@ -10,9 +10,14 @@ const SPANISH = "Español";
 
 const LanguageChoice = ({ onLanguageChosen, nextPagePath }) => {
   const [redirect, setRedirect] = useState(false);
+  const [language, setLanguage] = useState(ENGLISH);
+
+  useEffect(() => {
+    onLanguageChosen(language);
+  }, [redirect, onLanguageChosen, language]);
 
   const handleClick = (language) => {
-    onLanguageChosen(language);
+    setLanguage(language);
     setRedirect(true);
   };
 
