@@ -27,7 +27,7 @@ const LanguageChoice = ({ onLanguageChosen, nextPagePath }) => {
 
   return (
     <div>
-      <div className="centered">
+      <div className="centered" style={{ color: "white" }}>
         <ButtonGroup
           size="large"
           variant="contained"

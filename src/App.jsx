@@ -92,12 +92,12 @@ const App = () => {
           path="/reading"
           component={() => <Reading text={text} nextPagePath="/quiz" />}
         />
-         <Route
+        <Route
           path="/quiz"
           component={() => (
             <Quiz nextPagePath="/game" language={cookies["language"]} />
           )}
-          />
+        />
 
         <Route
           path="/game"
