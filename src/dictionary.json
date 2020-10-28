@@ -1,0 +1,65 @@
+{
+  "English": {
+    "next": "Next",
+    "collectedMoney": "Collected money",
+    "expectedPrize": "Expected prize",
+    "question1": "What is the capital of France?",
+    "question2": "Who is CEO of Tesla?",
+    "question3": "The iPhone was created by which company?",
+    "question4": "How many Harry Potter books are there?",
+    "question5": "Will this work?",
+    "answers1": ["New York", "London", "Paris", "Dublin"],
+    "answers5": ["Yes", "No", "Maybe", "All answers are correct"],
+    "youScored": "You scored",
+    "outOf": "out of",
+    "instruction": [
+      "Enter personal data.",
+      "Read the text.",
+      "Answer the questions.",
+      "Pump the balloon earning money and risking it'll pop or take the money you earned.",
+      "Repeat the above on five baloons."
+    ]
+  },
+  "Polski": {
+    "next": "Następny",
+    "collectedMoney": "Zebrane pieniądze",
+    "expectedPrize": "Oczekiwana nagroda",
+    "question1": "Jaka jest stolica francji?",
+    "question2": "Kto jest CEO Tesli?",
+    "question3": "Przez którą firmę został stworzony iPhone?",
+    "question4": "Ile jest książek Harrego Pottera?",
+    "question5": "Czy to będzie działać?",
+    "answers1": ["Nowy Jork", "Londyn", "Paryż", "Dublin"],
+    "answers5": ["Tak", "Nie", "Może", "Wszystkie odpowiedzi są prawidłowe"],
+    "youScored": "Zdobyłeś",
+    "outOf": "z",
+    "instruction": [
+      "Wpisz dane osobowe.",
+      "Przeczytaj tekst.",
+      "Odpowiedz na pytania.",
+      "Pompuj balonika zarabiając pieniądze i ryzykując, że pęknie albo weź pieniądze, które zarobiłeś dotychczas.",
+      "Powtórz punkt powyższy na pięciu balonikach."
+    ]
+  },
+  "Español": {
+    "next": "Siguiente",
+    "collectedMoney": "Dinero recolectado",
+    "expectedPrize": "Recompensa esperada",
+    "question1": "¿Cuál es la capital de Francia?",
+    "question2": "¿Quién es el CEO de Tesla?",
+    "question3": "¿Qué empresa creó el iPhone?",
+    "question4": "¿Cuántos libros de Harry Potter hay?",
+    "question5": "¿Funcionará?",
+    "answers1": ["Nueva York", "Londres", "París", "Dublín"],
+    "answers5": ["Si", "No", "Tal vez", "Todas las respuestas son correctas"],
+    "youScored": "Lo tienes",
+    "outOf": "de",
+    "instruction": [
+      "Ingrese datos personales.",
+      "Lee el texto.",
+      "Responde a las preguntas.",
+      "Bombea el globo ganando dinero y arriesgando que explote o se lleve el dinero que ganaste.",
+      "Repite lo anterior en cinco globos."
+    ]
+  }
+}

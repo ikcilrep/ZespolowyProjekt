@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
-import { ENGLISH, POLISH, SPANISH } from "./LanguageChoice";
 import "./Balloon.css";
 import "./LanguageChoice.css";
+import dictionary from "../dictionary.json";
 
 export default function Balloon({
   language,
@@ -37,12 +37,6 @@ export default function Balloon({
     setPop(1);
     onResign();
   };
-
-  const dictionary = {};
-
-  dictionary[ENGLISH] = { next: "Next" };
-  dictionary[POLISH] = { next: "Następny" };
-  dictionary[SPANISH] = { next: "Siguiente" };
 
   return (
     <div>
