@@ -98,12 +98,23 @@ export default function Quiz({ nextPagePath, language }) {
       setShowScore(true);
     }
   };
+
+  const youScored = {};
+  youScored[ENGLISH] = "You scored";
+  youScored[POLISH] = "Zdobyłeś";
+  youScored[SPANISH] = "Lo tienes";
+
+  const outOf = {};
+  outOf[ENGLISH] = "out of";
+  outOf[POLISH] = "z";
+  outOf[SPANISH] = "de";
+
   return (
     <div className="quiz">
       <div className="app">
         {showScore ? (
           <div className="score-section">
-            You scored {score} out of {questions.length}
+            {youScored[language]} {score} {outOf[language]} {questions.length}
             <Button
               onClick={() => setRedirect(true)}
               variant="contained"
