@@ -35,12 +35,12 @@ const Game = ({ language }) => {
 
 
 
-    if (baloonNumber < NUMBER_OF_BALLOONS) {
+    if (baloonNumber < NUMBER_OF_BALLOONS+1) {
         return (<div>
             <h3>{dictionary[language].collectedMoney}: {collectedMoney}$</h3>
             <h4>{dictionary[language].expectedPrize}: {prize}$</h4>
             <h5>{baloonNumber}/{NUMBER_OF_BALLOONS}</h5>
-            <Balloon numberOfBaloons={NUMBER_OF_BALLOONS}
+            <Balloon numberOfBaloons={NUMBER_OF_BALLOONS+1}
                 number={baloonNumber}
                 onSuccessfulPump={onSuccessfulPump}
                 onExplosion={onExplosion}
