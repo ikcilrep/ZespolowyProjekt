@@ -69,3 +69,7 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
+#confirmbutton {
+  margin-left: 1em;
+}
