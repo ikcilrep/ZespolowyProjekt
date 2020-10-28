@@ -9,7 +9,7 @@ const MAN = "Man";
 const WOMAN = "Woman";
 const OTHER = "Other";
 
-const UserPersonalData = ({ onDataEntered, nextPagePath, language }) => {
+const UserPersonalData = ({ handleData, nextPagePath, language }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState(0);
@@ -17,7 +17,7 @@ const UserPersonalData = ({ onDataEntered, nextPagePath, language }) => {
   const [redirect, setRedirect] = useState(false);
 
   const handleClick = () => {
-    onDataEntered({ firstName, lastName, age, sex });
+    handleData({ firstName, lastName, age, sex });
     setRedirect(true);
   };
 

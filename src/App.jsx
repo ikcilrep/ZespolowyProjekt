@@ -18,7 +18,7 @@ const App = () => {
     setCookie("language", language);
   };
 
-  const onDataEntered = ({ firstName, lastName, age, sex }) => {
+  const handleData = ({ firstName, lastName, age, sex }) => {
     // do something with data
   };
 
@@ -45,7 +45,7 @@ const App = () => {
           component={() => (
             <UserPersonalData
               language={cookies["language"]}
-              onDataEntered={onDataEntered}
+              handleData={handleData}
               nextPagePath="/instruction"
             />
           )}
