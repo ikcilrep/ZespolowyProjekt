@@ -3,19 +3,66 @@ import { Redirect } from "react-router-dom";
 import "./Quiz.css";
 import { Button } from "@material-ui/core";
 
+import { ENGLISH, SPANISH, POLISH } from "./LanguageChoice";
+
 export default function Quiz({ nextPagePath, language }) {
+  const question1 = {};
+  question1[ENGLISH] = "What is the capital of France?";
+  question1[SPANISH] = "¿Cuál es la capital de Francia?";
+  question1[POLISH] = "Jaka jest stolica francji?";
+
+  const question2 = {};
+  question2[ENGLISH] = "Who is CEO of Tesla?";
+  question2[SPANISH] = "¿Quién es el CEO de Tesla?";
+  question2[POLISH] = "Kto jest CEO Tesli?";
+
+  const question3 = {};
+  question3[ENGLISH] = "The iPhone was created by which company?";
+  question3[SPANISH] = "¿Qué empresa creó el iPhone?";
+  question3[POLISH] = "Przez którą firmę został stworzony iPhone?";
+
+  const question4 = {};
+  question4[ENGLISH] = "How many Harry Potter books are there?";
+  question4[SPANISH] = "¿Cuántos libros de Harry Potter hay?";
+  question4[POLISH] = "Ile jest książek Harrego Pottera?";
+
+  const question5 = {};
+  question5[ENGLISH] = "Will this work?";
+  question5[SPANISH] = "¿Funcionará?";
+  question5[POLISH] = "Czy to będzie działać?";
+
+  const answers1 = {};
+  answers1[ENGLISH] = ["New York", "London", "Paris", "Dublin"];
+  answers1[SPANISH] = ["Nueva York", "Londres", "París", "Dublín"];
+  answers1[POLISH] = ["Nowy Jork", "Londyn", "Paryż", "Dublin"];
+
+  const answers5 = {};
+  answers5[ENGLISH] = ["Yes", "No", "Maybe", "All answers are correct"];
+  answers5[SPANISH] = [
+    "Si",
+    "No",
+    "Tal vez",
+    "Todas las respuestas son correctas",
+  ];
+  answers5[POLISH] = [
+    "Tak",
+    "Nie",
+    "Może",
+    "Wszystkie odpowiedzi są prawidłowe",
+  ];
+
   const questions = [
     {
-      questionText: "What is the capital of France?",
+      questionText: question1[language],
       answerOptions: [
-        { answerText: "New York", isCorrect: false },
-        { answerText: "London", isCorrect: false },
-        { answerText: "Paris", isCorrect: true },
-        { answerText: "Dublin", isCorrect: false },
+        { answerText: answers1[language][0], isCorrect: false },
+        { answerText: answers1[language][1], isCorrect: false },
+        { answerText: answers1[language][2], isCorrect: true },
+        { answerText: answers1[language][3], isCorrect: false },
       ],
     },
     {
-      questionText: "Who is CEO of Tesla?",
+      questionText: question2[language],
       answerOptions: [
         { answerText: "Jeff Bezos", isCorrect: false },
         { answerText: "Elon Musk", isCorrect: true },
@@ -24,7 +71,7 @@ export default function Quiz({ nextPagePath, language }) {
       ],
     },
     {
-      questionText: "The iPhone was created by which company?",
+      questionText: question3[language],
       answerOptions: [
         { answerText: "Apple", isCorrect: true },
         { answerText: "Intel", isCorrect: false },
@@ -33,7 +80,7 @@ export default function Quiz({ nextPagePath, language }) {
       ],
     },
     {
-      questionText: "How many Harry Potter books are there?",
+      questionText: question4[language],
       answerOptions: [
         { answerText: "1", isCorrect: false },
         { answerText: "4", isCorrect: false },
@@ -42,12 +89,12 @@ export default function Quiz({ nextPagePath, language }) {
       ],
     },
     {
-      questionText: "Will this work?",
+      questionText: question5[language],
       answerOptions: [
-        { answerText: "Yes", isCorrect: false },
-        { answerText: "No", isCorrect: false },
-        { answerText: "Maybe", isCorrect: false },
-        { answerText: "All answers are correct", isCorrect: true },
+        { answerText: answers5[language][0], isCorrect: false },
+        { answerText: answers5[language][1], isCorrect: false },
+        { answerText: answers5[language][2], isCorrect: false },
+        { answerText: answers5[language][3], isCorrect: true },
       ],
     },
   ];
@@ -72,12 +119,24 @@ export default function Quiz({ nextPagePath, language }) {
       setShowScore(true);
     }
   };
+
+  const youScored = {};
+  youScored[ENGLISH] = "You scored";
+  youScored[POLISH] = "Zdobyłeś";
+  youScored[SPANISH] = "Lo tienes";
+
+  const outOf = {};
+  outOf[ENGLISH] = "out of";
+  outOf[POLISH] = "z";
+  outOf[SPANISH] = "de";
+
   return (
     <div className="quiz">
       <div className="app">
         {showScore ? (
           <div className="score-section">
-            You scored {score} out of {questions.length}
+
+            {youScored[language]} {score} {outOf[language]} {questions.length}
             <Button
               onClick={() => setRedirect(true)}
               variant="contained"
