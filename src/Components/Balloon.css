@@ -124,59 +124,7 @@ body {
   }
 }
 
-@keyframes pop {
-  from {
-    width: 210px;
-    height: 300px;
-    top: -35pt;
-    left: 565px;
-    transform: rotate(-140deg);
-  }
-  to {
-    width: 280px;
-    height: 400px;
-    top: -800pt;
-    left: 570px;
-    transform: rotate(-200deg);
-  }
-}
-
 @keyframes wait {
 }
 
-@keyframes baloon {
-  0% {
-    width: 3px;
-    height: 3px;
-    top: 158pt;
-    transform: rotate(-95deg);
-  }
-  25% {
-    width: 140px;
-    height: 200px;
-    top: 70pt;
-    left: 595px;
-    transform: rotate(-95deg);
-  }
-  50% {
-    width: 210px;
-    height: 300px;
-    top: -35pt;
-    left: 565px;
-    transform: rotate(-140deg);
-  }
-  75% {
-    width: 280px;
-    height: 400px;
-    top: -120pt;
-    left: 520px;
-    transform: rotate(-150deg);
-  }
-  100% {
-    width: 280px;
-    height: 400px;
-    top: -800pt;
-    left: 570px;
-    transform: rotate(-200deg);
-  }
-}
+
