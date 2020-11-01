@@ -30,7 +30,7 @@ body {
 }
 
 .stick1[pump="1"] {
-  animation: stick 1s 1 forwards;
+  animation: stick 0.7s 1 forwards;
 }
 
 .stick2 {
@@ -42,7 +42,7 @@ body {
 }
 
 .stick2[pump="1"] {
-  animation: stick 1s 1 forwards;
+  animation: stick 0.7s 1 forwards;
 }
 
 .box {
@@ -94,24 +94,12 @@ body {
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
   background: #86a1ca;
   position: absolute;
-  left: 570px;
-  top: 158pt;
-  width: 3px;
-  height: 3px;
-  animation: baloon 4s infinite forwards;
+  left: 535px;
+  top: 120px;
+  width: 30px;
+  height: 30px;
 }
 
-.baloon[pump="1"] {
-  animation-play-state: running;
-}
-
-.baloon[pump="0"] {
-  animation-play-state: paused;
-}
-
-.baloon[pop="1"] {
-  animation: pop 2s 1;
-}
 
 .ground {
   background-color: gray;
