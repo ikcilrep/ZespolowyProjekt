@@ -1,5 +1,5 @@
 import React from "react";
-import LanguageChoice from "./Components/LanguageChoice";
+import LanguageChoice, { ENGLISH } from "./Components/LanguageChoice";
 import Error404 from "./Components/Error404";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
@@ -13,7 +13,6 @@ import dictionary from "./dictionary.json";
 
 const App = () => {
   const [cookies, setCookie] = useCookies(["language"]);
-
   const chooseLanguage = (language) => {
     setCookie("language", language);
   };
@@ -25,7 +24,13 @@ const App = () => {
   const text =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
-  const instruction = dictionary[cookies["language"]].instruction;
+  let instruction;
+  if (cookies["language"]) {
+    instruction = dictionary[cookies["language"]].instruction;
+  } else {
+    setCookie("language", ENGLISH);
+    instruction = dictionary[ENGLISH].instruction;
+  }
 
   return (
     <BrowserRouter>
@@ -53,10 +58,7 @@ const App = () => {
         <Route
           path="/instruction"
           component={() => (
-            <Instruction
-              points={instruction}
-              nextPagePath="/reading"
-            />
+            <Instruction points={instruction} nextPagePath="/reading" />
           )}
         />
         <Route
