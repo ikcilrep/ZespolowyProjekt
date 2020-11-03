@@ -4,9 +4,9 @@ import "./Balloon.css";
 import "./LanguageChoice.css";
 import dictionary from "../dictionary.json";
 
-const setInitialBaloonStyle = (baloonRef) => {
-  setBaloonStyle({
-    baloonRef,
+const setInitialBalloonStyle = (balloonRef) => {
+  setBalloonStyle({
+    balloonRef,
     width: 30,
     height: 42,
     borderRadius: "50% 50% 50% 50% / 40% 40% 60% 60%",
@@ -16,8 +16,8 @@ const setInitialBaloonStyle = (baloonRef) => {
   });
 };
 
-const setBaloonStyle = ({
-  baloonRef,
+const setBalloonStyle = ({
+  balloonRef,
   width,
   height,
   left,
@@ -25,20 +25,20 @@ const setBaloonStyle = ({
   opacity,
   borderRadius,
 }) => {
-  if (width !== undefined) baloonRef.current.style.width = `${width}px`;
-  if (height !== undefined) baloonRef.current.style.height = `${height}px`;
-  if (left !== undefined) baloonRef.current.style.left = `${left}px`;
-  if (top !== undefined) baloonRef.current.style.top = `${top}px`;
-  if (opacity !== undefined) baloonRef.current.style.opacity = opacity;
+  if (width !== undefined) balloonRef.current.style.width = `${width}px`;
+  if (height !== undefined) balloonRef.current.style.height = `${height}px`;
+  if (left !== undefined) balloonRef.current.style.left = `${left}px`;
+  if (top !== undefined) balloonRef.current.style.top = `${top}px`;
+  if (opacity !== undefined) balloonRef.current.style.opacity = opacity;
   if (borderRadius !== undefined)
-    baloonRef.current.style.borderRadius = borderRadius;
+    balloonRef.current.style.borderRadius = borderRadius;
 };
 
-const baloonPump = (baloonRef, p) => {
-  let width = baloonRef.current.style.width;
-  let height = baloonRef.current.style.height;
-  let left = baloonRef.current.style.left;
-  let top = baloonRef.current.style.top;
+const balloonPump = (balloonRef, p) => {
+  let width = balloonRef.current.style.width;
+  let height = balloonRef.current.style.height;
+  let left = balloonRef.current.style.left;
+  let top = balloonRef.current.style.top;
   let i = 0;
   const timer = setInterval(() => {
     if (i !== p) {
@@ -47,22 +47,22 @@ const baloonPump = (baloonRef, p) => {
       height = parseFloat(height) + 42 / 30;
       left = parseFloat(left) - 0.5;
       top = parseFloat(top) - 42 / 30;
-      setBaloonStyle({ baloonRef, width, height, left, top });
+      setBalloonStyle({ balloonRef, width, height, left, top });
     } else {
       clearInterval(timer);
     }
   }, 400 / p);
 };
 
-const baloonPop = (baloonRef) => {
-  let width = baloonRef.current.style.width;
-  let height = baloonRef.current.style.height;
-  let left = baloonRef.current.style.left;
-  let top = baloonRef.current.style.top;
-  let opacity = baloonRef.current.style.opacity;
+const balloonPop = (balloonRef) => {
+  let width = balloonRef.current.style.width;
+  let height = balloonRef.current.style.height;
+  let left = balloonRef.current.style.left;
+  let top = balloonRef.current.style.top;
+  let opacity = balloonRef.current.style.opacity;
   let i = 0;
   const timer = setInterval(() => {
-    if (i !== 150 && baloonRef.current !== null) {
+    if (i !== 150 && balloonRef.current !== null) {
       i++;
       width = parseFloat(width) + 2;
       height = parseFloat(height) + (42 / 30) * 2;
@@ -70,29 +70,29 @@ const baloonPop = (baloonRef) => {
       top = parseFloat(top) - (42 / 30) * 2;
       opacity = parseFloat(opacity) - 1 / 150;
 
-      setBaloonStyle({ baloonRef, width, height, left, top, opacity });
-    } else if (baloonRef.current !== null) {
+      setBalloonStyle({ balloonRef, width, height, left, top, opacity });
+    } else if (balloonRef.current !== null) {
       clearInterval(timer);
-      setInitialBaloonStyle(baloonRef);
+      setInitialBalloonStyle(balloonRef);
     }
   }, 1);
 };
 
-const baloonResign = (baloonRef) => {
-  if (baloonRef != null) {
-    let left = baloonRef.current.style.left;
-    let top = baloonRef.current.style.top;
+const balloonResign = (balloonRef) => {
+  if (balloonRef != null) {
+    let left = balloonRef.current.style.left;
+    let top = balloonRef.current.style.top;
     let i = 0;
     const timer = setInterval(() => {
-      if (i !== 400 && baloonRef.current !== null) {
+      if (i !== 400 && balloonRef.current !== null) {
         i++;
         left = parseFloat(left) + Math.sin(i / 30);
         top = parseFloat(top) - 3;
-        console.log(baloonRef);
-        setBaloonStyle({ baloonRef, left, top });
-      } else if (baloonRef.current !== null) {
+        console.log(balloonRef);
+        setBalloonStyle({ balloonRef, left, top });
+      } else if (balloonRef.current !== null) {
         clearInterval(timer);
-        setInitialBaloonStyle(baloonRef);
+        setInitialBalloonStyle(balloonRef);
       }
     }, 1);
   }
@@ -103,27 +103,27 @@ export default function Balloon({
   onSuccessfulPump,
   onExplosion,
   number,
-  numberOfBaloons,
+  numberOfBalloons,
   onResign,
 }) {
-  const baloonRef = useRef();
+  const balloonRef = useRef();
   const [pump, setPump] = useState(0);
   const [pumps, setPumps] = useState(0);
 
   useEffect(() => {
-    setInitialBaloonStyle(baloonRef);
+    setInitialBalloonStyle(balloonRef);
   }, []);
 
   const handleClick = () => {
     setPump(1);
     if (pumps === 3) {
-      baloonPop(baloonRef);
+      balloonPop(balloonRef);
       setPumps(0);
       onExplosion();
     } else {
       onSuccessfulPump();
       setPumps(pumps + 1);
-      baloonPump(baloonRef, 20);
+      balloonPump(balloonRef, 20);
     }
   };
 
@@ -133,11 +133,11 @@ export default function Balloon({
 
   const handleResign = () => {
     setPumps(0);
-    baloonResign(baloonRef);
+    balloonResign(balloonRef);
     onResign();
   };
 
-  const thereIsANextBalloon = number < numberOfBaloons - 1;
+  const thereIsANextBalloon = number < numberOfBalloons - 1;
 
   return (
     <div>
@@ -161,7 +161,7 @@ export default function Balloon({
           <div className="stamp-balloon" pump={pump}></div>
           <div className="stamp-triangle" pump={pump}></div>
         </div>
-        <div className="baloon" pump={pump} ref={baloonRef}></div>
+        <div className="balloon" pump={pump} ref={balloonRef}></div>
       </div>
     </div>
   );

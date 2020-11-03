@@ -90,7 +90,7 @@ body {
   border-radius: 0 0 240px 50%/60px;
 }
 
-.baloon {
+.balloon {
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
   background: #86a1ca;
   position: absolute;
