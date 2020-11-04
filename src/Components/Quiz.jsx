@@ -56,7 +56,7 @@ const getQuestions = (language) => {
   return questions;
 };
 
-export default function Quiz({ nextPagePath, language }) {
+export default function Quiz({ nextPagePath, language, handleQuizResult }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [redirect, setRedirect] = useState(false);
@@ -76,6 +76,7 @@ export default function Quiz({ nextPagePath, language }) {
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     } else {
+      handleQuizResult(score);
       setShowScore(true);
     }
   };

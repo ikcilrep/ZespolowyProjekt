@@ -4,7 +4,7 @@ import dictionary from "../dictionary.json";
 
 const NUMBER_OF_BALLOONS = 5;
 
-const Game = ({ language }) => {
+const Game = ({ language, handleEarnedMoney }) => {
   const [collectedMoney, setCollectedMoney] = useState(0);
   const [prize, setPrize] = useState(0);
   const [baloonNumber, setBaloonNumber] = useState(0);
@@ -49,6 +49,7 @@ const Game = ({ language }) => {
       </div>
     );
   } else {
+    handleEarnedMoney(collectedMoney);
     return (
       <div className="centered">
         <h1>
