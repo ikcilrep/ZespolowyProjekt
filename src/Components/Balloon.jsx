@@ -78,7 +78,7 @@ const balloonPop = (balloonRef) => {
   }, 1);
 };
 
-const balloonResign = (balloonRef) => {
+const balloonResign = (balloonRef, setDisabled) => {
   if (balloonRef != null) {
     let left = balloonRef.current.style.left;
     let top = balloonRef.current.style.top;
@@ -88,11 +88,12 @@ const balloonResign = (balloonRef) => {
         i++;
         left = parseFloat(left) + Math.sin(i / 30);
         top = parseFloat(top) - 3;
-        console.log(balloonRef);
+        // console.log(balloonRef);
         setBalloonStyle({ balloonRef, left, top });
       } else if (balloonRef.current !== null) {
         clearInterval(timer);
         setInitialBalloonStyle(balloonRef);
+        setDisabled(false);
       }
     }, 1);
   }
@@ -110,30 +111,48 @@ export default function Balloon({
   const [pump, setPump] = useState(0);
   const [pumps, setPumps] = useState(0);
 
+  const [disabled, setDisabled] = useState(false);
+  const [pumpDisabled, setPumpDisabled] = useState(false);
+
   useEffect(() => {
     setInitialBalloonStyle(balloonRef);
   }, []);
 
-  const handleClick = () => {
-    setPump(1);
-    if (pumps === 3) {
-      balloonPop(balloonRef);
-      setPumps(0);
-      onExplosion();
+
+  useEffect(() => {
+    setDisabled(false);
+  }, [])
+
+
+  const balloonDurabilityArray = [1, 2, 3, 4, 5]
+
+  const handleClick = (balloonNumber) => {
+    if (!disabled && !pumpDisabled) {
+      setPumpDisabled(true); 
+      setPump(1);
+      if (pumps >= balloonDurabilityArray[balloonNumber]) {
+        balloonPop(balloonRef);
+        setPumps(0);
+        onExplosion();
+      } else {
+        onSuccessfulPump();
+        setPumps(pumps + 1);
+        balloonPump(balloonRef, 20);
+      }
     } else {
-      onSuccessfulPump();
-      setPumps(pumps + 1);
-      balloonPump(balloonRef, 20);
+      // console.log('byl disabled')
     }
-  };
+    };
 
   const handleAnimationEnd = () => {
+    setPumpDisabled(false);
     setPump(0);
   };
 
   const handleResign = () => {
+    setDisabled(true);
     setPumps(0);
-    balloonResign(balloonRef);
+    balloonResign(balloonRef, setDisabled);
     onResign();
   };
 
@@ -142,12 +161,12 @@ export default function Balloon({
   return (
     <div>
       <Button onClick={handleResign} variant="contained" color="secondary">
-        {thereIsANextBalloon ? dictionary[language].next : "OK"}
+        {thereIsANextBalloon ? dictionary[language].next : "OKaaaaay TAKE MY MONEY BRUV"}
       </Button>
 
       <div
         className="container"
-        onClick={handleClick}
+        onClick={() => handleClick(number)}
         onAnimationEnd={handleAnimationEnd}
         pump={pump}
         pumps={pumps}

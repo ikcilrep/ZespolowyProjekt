@@ -12,14 +12,18 @@ const LanguageChoice = ({ onLanguageChosen, nextPagePath }) => {
   const [redirect, setRedirect] = useState(false);
   const [language, setLanguage] = useState(ENGLISH);
 
-  useEffect(() => {
-    onLanguageChosen(language);
-  }, [redirect, onLanguageChosen, language]);
 
   const handleClick = (language) => {
+    console.log('SETTING LANG TO: ', language)
     setLanguage(language);
+    onLanguageChosen(language)
     setRedirect(true);
   };
+
+  // useEffect(() => {
+  //   onLanguageChosen(language);
+  // }, [language, redirect, onLanguageChosen])
+
 
   if (redirect) {
     return <Redirect to={nextPagePath} />;

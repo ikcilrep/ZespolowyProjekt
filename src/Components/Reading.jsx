@@ -23,7 +23,7 @@ const Reading = ({ text, nextPagePath }) => {
           {text}
         </Typography>
         <Button onClick={handleClick} variant="contained" color="secondary">
-          OK
+          == OK ==
         </Button>
       </div>
     </>

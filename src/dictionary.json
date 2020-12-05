@@ -26,6 +26,10 @@
     "Age": "Age",
     "Sex": "Sex"
   },
+
+
+
+
   "Polski": {
     "next": "Następny",
     "collectedMoney": "Zebrane pieniądze",
@@ -51,8 +55,13 @@
     "FirstName": "Imię",
     "LastName": "Nazwisko",
     "Age": "Wiek",
-    "Sex": "Płeć"
+    "Sex": "Płeć",
+    "introductionMessage": "Zostałeś zaproszony do wzięcia udziału w badaniu do pracy magisterskiej Kacpra Rzepeckiego, studenta V roku Psychologii na Uniwersytecie Wrocławskim. Uzyskane dane pomogą w przygotowaniu  pracy magisterskiej, która dotyczy wykazania różnic pomiędzy osobami posługującymi się różnymi językami obcymi. Udział w badaniu jest dobrowolny oraz w pełni anonimowy. Wyniki zostaną użyte wyłącznie do celów naukowych i będą analizowane jedynie w kontekście grupowym, a nie indywidualnym. Na końcu badania zostanie wyświetlona krótka gra. Dla najlepszych wyników przewidziane są nagrody rzeczowe w postaci bonu podarunkowego do sklepów EMPIK na 50 zł. Zostaną wybrane 3 osoby o najlepszych wynikach."
   },
+
+
+
+
   "Español": {
     "next": "Siguiente",
     "collectedMoney": "Dinero recolectado",

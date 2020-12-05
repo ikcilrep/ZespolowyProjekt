@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import LanguageChoice, { ENGLISH } from "./Components/LanguageChoice";
 import Error404 from "./Components/Error404";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -9,13 +9,21 @@ import Quiz from "./Components/Quiz";
 import Game from "./Components/Game";
 import UserPersonalData from "./Components/UserPersonalData";
 import { useCookies } from "react-cookie";
-import dictionary from "./dictionary.json";
+import dictionary from "./dictionary.json"; 
 
 const App = () => {
+  
+  const [userInfo, setUserInfo] = useState({});
+
   const [cookies, setCookie] = useCookies(["language"]);
+
   const chooseLanguage = (language) => {
+    // setUserInfo(prevState => ({...prevState, language: language}));
     setCookie("language", language);
+    console.log('LANG: ', language)
   };
+
+  console.log('USER INFO ==>:', userInfo);
 
   const handleData = ({ firstName, lastName, age, sex }) => {
     // do something with data
@@ -28,13 +36,16 @@ const App = () => {
   const text =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
-  let instruction;
+  let instruction, introductionMessage;
   if (cookies["language"]) {
     instruction = dictionary[cookies["language"]].instruction;
+    introductionMessage = dictionary[cookies["language"]].introductionMessage
   } else {
     setCookie("language", ENGLISH);
     instruction = dictionary[ENGLISH].instruction;
+    introductionMessage = dictionary[ENGLISH].introductionMessage;
   }
+
 
   return (
     <BrowserRouter>
@@ -44,10 +55,14 @@ const App = () => {
           path="/"
           component={() => (
             <LanguageChoice
-              onLanguageChosen={chooseLanguage}
-              nextPagePath="/data"
+              onLanguageChosen={chooseLanguage, setUserInfo}
+              nextPagePath="/introductionMessage"
             />
           )}
+        />
+        <Route
+          path="/introductionMessage"
+          component={() => <Reading text={introductionMessage} nextPagePath="/data" />}
         />
         <Route
           path="/data"
@@ -62,8 +77,12 @@ const App = () => {
         <Route
           path="/instruction"
           component={() => (
-            <Instruction points={instruction} nextPagePath="/reading" />
+            <Instruction points={instruction} nextPagePath="/dupa" />
           )}
+        />
+        <Route
+          path="/dupa"
+          component={() => <Reading text="dupa" nextPagePath="/reading" />}
         />
         <Route
           path="/reading"
