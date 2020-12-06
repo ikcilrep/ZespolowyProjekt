@@ -23,27 +23,28 @@ const App = () => {
 
   const handleEarnedMoney = (amount) => {};
 
-  const handleQuizResult = (score) => {};
-
   let instruction, introductionMessage, acknowledgementMessage, personalityTestInformation;
   let readingComprehensionInfo, readingComprehension, readingComprehensionText;
+  let balloonGameInfo;
   if (cookies["language"]) {
     instruction = dictionary[cookies["language"]].instruction;
-    introductionMessage = dictionary[cookies["language"]].introductionMessage
-    acknowledgementMessage = dictionary[cookies["language"]].acknowledgementMessage
-    personalityTestInformation = dictionary[cookies["language"]].personalityTestInformation
-    readingComprehensionInfo = dictionary[cookies["language"]].readingComprehensionInfo
-    readingComprehension = dictionary[cookies["language"]].readingComprehension
-    readingComprehensionText = dictionary[cookies["language"]].readingComprehensionText
+    introductionMessage = dictionary[cookies["language"]].introductionMessage;
+    acknowledgementMessage = dictionary[cookies["language"]].acknowledgementMessage;
+    personalityTestInformation = dictionary[cookies["language"]].personalityTestInformation;
+    readingComprehensionInfo = dictionary[cookies["language"]].readingComprehensionInfo;
+    readingComprehension = dictionary[cookies["language"]].readingComprehension;
+    readingComprehensionText = dictionary[cookies["language"]].readingComprehensionText;
+    balloonGameInfo = dictionary[cookies["language"]].balloonGameInfo;
   } else {
     setCookie("language", ENGLISH);
     instruction = dictionary[ENGLISH].instruction;
     introductionMessage = dictionary[ENGLISH].introductionMessage;
-    acknowledgementMessage = dictionary[ENGLISH].acknowledgementMessage
-    personalityTestInformation = dictionary[ENGLISH].personalityTestInformation
-    readingComprehensionInfo = dictionary[ENGLISH].readingComprehensionInfo
-    readingComprehension = dictionary[ENGLISH].readingComprehension
-    readingComprehensionText = dictionary[ENGLISH].readingComprehensionText
+    acknowledgementMessage = dictionary[ENGLISH].acknowledgementMessage;
+    personalityTestInformation = dictionary[ENGLISH].personalityTestInformation;
+    readingComprehensionInfo = dictionary[ENGLISH].readingComprehensionInfo;
+    readingComprehension = dictionary[ENGLISH].readingComprehension;
+    readingComprehensionText = dictionary[ENGLISH].readingComprehensionText;
+    balloonGameInfo = dictionary[ENGLISH].balloonGameInfo;
   }
 
   return (
@@ -104,11 +105,14 @@ const App = () => {
           path="/quiz"
           component={() => (
             <Quiz
-              handleQuizResult={handleQuizResult}
-              nextPagePath="/game"
+              nextPagePath="/balloonGameInfo"
               language={cookies["language"]}
             />
           )}
+        />
+        <Route
+          path="/balloonGameInfo"
+          component={() => <Reading text={balloonGameInfo} nextPagePath="/game" />}
         />
         <Route
           path="/game"

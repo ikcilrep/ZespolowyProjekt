@@ -28,7 +28,7 @@ const Game = ({ language, handleEarnedMoney }) => {
 
   if (baloonNumber < NUMBER_OF_BALLOONS + 1) {
     return (
-      <div>
+      <div textAlign='center'>
         <h3>
           {dictionary[language].collectedMoney}: {collectedMoney}$
         </h3>

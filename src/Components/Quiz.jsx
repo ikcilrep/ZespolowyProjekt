@@ -56,7 +56,7 @@ const getQuestions = (language) => {
   return questions;
 };
 
-export default function Quiz({ nextPagePath, language, handleQuizResult }) {
+export default function Quiz({ nextPagePath, language }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [redirect, setRedirect] = useState(false);
@@ -76,7 +76,6 @@ export default function Quiz({ nextPagePath, language, handleQuizResult }) {
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     } else {
-      handleQuizResult(score);
       setShowScore(true);
     }
   };
@@ -85,16 +84,15 @@ export default function Quiz({ nextPagePath, language, handleQuizResult }) {
     <div className="quiz">
       <div className="app">
         {showScore ? (
-          <div className="score-section">
-            {dictionary[language].youScored} {score}{" == "}
-            {dictionary[language].outOf} {questions.length}
+          <div className="score-section" textAlign='center'>
+            {dictionary[language].youScored}
             <Button
               onClick={() => setRedirect(true)}
               variant="contained"
               color="secondary"
               id="confirmbutton"
             >
-              OK
+            OK
             </Button>
           </div>
         ) : (
