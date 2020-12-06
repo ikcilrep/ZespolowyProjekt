@@ -26,6 +26,15 @@ const getQuestions = (language) => {
         { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
       ],
     },
+    {
+      questionText: dictionary[language].personalityTestQuestion3,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
   ];
 
   return questions;
@@ -80,7 +89,7 @@ const PersonalityTest = ({ nextPagePath, language }) => {
           <>
             <div className="question-section">
               <div className="question-count">
-                <span>PERSONALITY TEST {currentQuestion + 1}</span>/{questions.length}
+                <span>{currentQuestion + 1}</span> / {questions.length}
               </div>
               <div className="question-text">
                 {questions[currentQuestion].questionText}
