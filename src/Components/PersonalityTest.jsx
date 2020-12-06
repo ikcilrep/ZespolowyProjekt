@@ -33,7 +33,7 @@ const getQuestions = (language) => {
 
 const PersonalityTest = ({ nextPagePath, language }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [currentAnswer, setCurrentAnswer] = useState({'tmp': 2});
+  const [currentAnswer, setCurrentAnswer] = useState(2);
 
   const [showScore, setShowScore] = useState(false);
   const [redirect, setRedirect] = useState(false);
@@ -43,14 +43,13 @@ const PersonalityTest = ({ nextPagePath, language }) => {
   const {personalityTestAnswers, setPersonalityTestAnswers} = useContext(AppContext);
   const questions = getQuestions(language);
 
+
   if (redirect) {
     return <Redirect to={nextPagePath} />;
   }
 
-  const handleAnswerOptionClick = (questionText, questionNumber) => {
-    let dupa = personalityTestAnswers + ' | ' + questionText + ' - answer: ' + questionNumber;
 
-    setPersonalityTestAnswers(questionNumber);
+  const handleAnswerOptionClick = (questionText, questionNumber) => {
 
     console.log('Q&A: ', questionText, questionNumber)
     const nextQuestion = currentQuestion + 1;
