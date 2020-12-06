@@ -33,32 +33,30 @@ const getQuestions = (language) => {
 
 const PersonalityTest = ({ nextPagePath, language }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  let currentAnswer = 0;
+  const [currentAnswer, setCurrentAnswer] = useState({'tmp': 2});
 
   const [showScore, setShowScore] = useState(false);
   const [redirect, setRedirect] = useState(false);
   const [score, setScore] = useState(0);
 
+
   const {personalityTestAnswers, setPersonalityTestAnswers} = useContext(AppContext);
   const questions = getQuestions(language);
-
-  useEffect(() => {
-    // context.setPersonalityTestAnswers(prevAnswers => ({...prevAnswers, questionNumber}) );
-    console.log('Current answer: ', currentAnswer)
-    setPersonalityTestAnswers(currentAnswer);
-  }, [currentQuestion])
 
   if (redirect) {
     return <Redirect to={nextPagePath} />;
   }
 
   const handleAnswerOptionClick = (questionText, questionNumber) => {
+    let dupa = personalityTestAnswers + ' | ' + questionText + ' - answer: ' + questionNumber;
+
+    setPersonalityTestAnswers(questionNumber);
+
     console.log('Q&A: ', questionText, questionNumber)
     const nextQuestion = currentQuestion + 1;
 
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
-      currentAnswer = questionNumber;
     } else {
       setShowScore(true);
     }
