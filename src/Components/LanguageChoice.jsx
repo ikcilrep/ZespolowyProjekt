@@ -11,19 +11,21 @@ const SPANISH = "Español";
 const LanguageChoice = ({ onLanguageChosen, nextPagePath }) => {
   const [redirect, setRedirect] = useState(false);
   const [language, setLanguage] = useState(ENGLISH);
+  const [userDataInfo, setUserDataInfo] = useState({});
 
+  useEffect(() => {
+    onLanguageChosen(language);
+  }, [redirect, onLanguageChosen, language]);
+
+  useEffect(() => {
+    console.log(userDataInfo);
+  }, [userDataInfo]);
 
   const handleClick = (language) => {
-    console.log('SETTING LANG TO: ', language)
     setLanguage(language);
-    onLanguageChosen(language)
+    setUserDataInfo({ lang: language });
     setRedirect(true);
   };
-
-  // useEffect(() => {
-  //   onLanguageChosen(language);
-  // }, [language, redirect, onLanguageChosen])
-
 
   if (redirect) {
     return <Redirect to={nextPagePath} />;
