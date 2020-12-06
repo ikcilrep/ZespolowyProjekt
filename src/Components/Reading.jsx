@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Button, Typography } from "@material-ui/core";
 import { Redirect } from "react-router-dom";
+import SaveIcon from '@material-ui/icons/Save';
+import Icon from '@material-ui/core/Icon';
+import Box from '@material-ui/core/Box';
+
 import "./LanguageChoice.css";
 import "./Reading.css";
 
@@ -19,12 +23,14 @@ const Reading = ({ text, nextPagePath }) => {
   return (
     <>
       <div className="reading centered" style={{ color: "black" }}>
-        <Typography variant="h5" component="h5">
+        <Typography  style={{whiteSpace: 'pre-line'}} variant="body1" gutterBottom>
           {text}
         </Typography>
-        <Button onClick={handleClick} variant="contained" color="secondary">
-          OK
-        </Button>
+        <Box textAlign='center'>
+          <Button onClick={handleClick} size="large" variant="contained" color="secondary" >
+            OK
+          </Button>
+        </Box>
       </div>
     </>
   );

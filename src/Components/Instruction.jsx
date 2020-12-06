@@ -20,12 +20,15 @@ const Instruction = ({ points, nextPagePath }) => {
       <div className="reading centered" style={{ color: "black" }}>
         {points.map((point, index) => (
           <Typography variant="h5" component="h5" key={index}>
-            {`${index + 1} ${point}`}
+            {`${index + 1}. ${point}`}
           </Typography>
         ))}
         <Button onClick={handleClick} variant="contained" color="secondary">
           OK
         </Button>
+        <Typography variant="h2" component="h5">
+          TODO: CZY CHCEMY TAKI FORMAT Z WYLICZANIEM GDZIEŚ???
+        </Typography>
       </div>
     </>
   );
