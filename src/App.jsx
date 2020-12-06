@@ -68,12 +68,6 @@ const App = () => {
           exact
           path="/"
           component={() => (
-            <Instruction points={instruction} nextPagePath="/chooseLanguage" />
-          )}
-        />
-        <Route
-          path="/chooseLanguage"
-          component={() => (
             <LanguageChoice
               onLanguageChosen={chooseLanguage}
               nextPagePath="/introductionMessage"
@@ -91,13 +85,13 @@ const App = () => {
         <Route
           path="/data"
           component={() => <Reading text="TUTAJ SA DANE OSOBOWE" nextPagePath="/personalityTestInformation" />}
-          // component={() => (
-          //   <UserPersonalData
-          //     language={cookies["language"]}
-          //     handleData={handleData}
-          //     nextPagePath="/personalityTestInformation"
-          //   />
-          // )}
+          component={() => (
+            <UserPersonalData
+              language={cookies["language"]}
+              handleData={handleData}
+              nextPagePath="/personalityTestInformation"
+            />
+          )}
         />
         <Route
           path="/personalityTestInformation"

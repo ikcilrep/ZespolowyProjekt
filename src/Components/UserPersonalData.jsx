@@ -26,15 +26,9 @@ const UserPersonalData = ({ handleData, nextPagePath, language }) => {
   }
 
   return (
-    <div style={{ color: "black" }} id="personaldataform" className="centered">
-      <div style={{ width: "75%" }}>
+    <div style={{ color: "black" }} id="personaldataform" className="centered" >
+      <div style={{ width: "75%" }} >
         <label>
-          {dictionary[language].FirstName}:
-          <input
-            onChange={(e) => setFirstName(e.target.value)}
-            type="text"
-            name="name"
-          />
           {dictionary[language].LastName}:
           <input
             onChange={(e) => setLastName(e.target.value)}
@@ -54,9 +48,11 @@ const UserPersonalData = ({ handleData, nextPagePath, language }) => {
             <option value={OTHER}>{dictionary[language].Other}</option>
           </select>
         </label>
-        <Button onClick={handleClick} variant="contained" color="secondary">
-          Ok
-        </Button>
+        <div>
+          <Button onClick={handleClick} variant="contained" color="primary">
+            OK
+          </Button>
+        </div>
       </div>
     </div>
   );
