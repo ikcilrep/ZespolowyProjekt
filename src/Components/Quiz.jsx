@@ -84,7 +84,7 @@ export default function Quiz({ nextPagePath, language }) {
     <div className="quiz">
       <div className="app">
         {showScore ? (
-          <div className="score-section" textAlign='center'>
+          <div className="score-section">
             {dictionary[language].youScored}
             <Button
               onClick={() => setRedirect(true)}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext, createContext, useState} from "react";
 import LanguageChoice, { ENGLISH } from "./Components/LanguageChoice";
 import Error404 from "./Components/Error404";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -6,13 +6,26 @@ import "./App.css";
 import Reading from "./Components/Reading";
 import Instruction from "./Components/Instruction";
 import Quiz from "./Components/Quiz";
+import PersonalityTest from "./Components/PersonalityTest";
 import Game from "./Components/Game";
 import UserPersonalData from "./Components/UserPersonalData";
 import { useCookies } from "react-cookie";
 import dictionary from "./dictionary.json";
+import AppContext from "./Components/AppContext"
+
 
 const App = () => {
   const [cookies, setCookie] = useCookies(["language"]);
+  const [language, setLanguage] = useState(ENGLISH);
+  const [personalityTestAnswers, setPersonalityTestAnswers] = useState({});
+
+  const userState = {
+    language, setLanguage,
+    personalityTestAnswers, setPersonalityTestAnswers
+  };
+
+  console.log('STATE: ', userState)
+
   const chooseLanguage = (language) => {
     setCookie("language", language);
   };
@@ -48,7 +61,8 @@ const App = () => {
   }
 
   return (
-    <BrowserRouter>
+  <AppContext.Provider value={userState}>
+  <BrowserRouter>
       <Switch>
         <Route
           exact
@@ -87,7 +101,16 @@ const App = () => {
         />
         <Route
           path="/personalityTestInformation"
-          component={() => <Reading text={personalityTestInformation} nextPagePath="/readingComprehensionInfo" />}
+          component={() => <Reading text={personalityTestInformation} nextPagePath="/personalityTest" />}
+        />
+        <Route
+          path="/personalityTest"
+          component={() => (
+            <PersonalityTest
+              nextPagePath="/readingComprehensionInfo"
+              language={cookies["language"]}
+            />
+          )}
         />
         <Route
           path="/readingComprehensionInfo"
@@ -126,7 +149,10 @@ const App = () => {
         <Route component={Error404} />
       </Switch>
     </BrowserRouter>
+  </AppContext.Provider>
   );
 };
+
+
 
 export default App;
