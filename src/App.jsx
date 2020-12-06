@@ -25,17 +25,25 @@ const App = () => {
 
   const handleQuizResult = (score) => {};
 
-  const text =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-
-  let instruction, introductionMessage;;
+  let instruction, introductionMessage, acknowledgementMessage, personalityTestInformation;
+  let readingComprehensionInfo, readingComprehension, readingComprehensionText;
   if (cookies["language"]) {
     instruction = dictionary[cookies["language"]].instruction;
     introductionMessage = dictionary[cookies["language"]].introductionMessage
+    acknowledgementMessage = dictionary[cookies["language"]].acknowledgementMessage
+    personalityTestInformation = dictionary[cookies["language"]].personalityTestInformation
+    readingComprehensionInfo = dictionary[cookies["language"]].readingComprehensionInfo
+    readingComprehension = dictionary[cookies["language"]].readingComprehension
+    readingComprehensionText = dictionary[cookies["language"]].readingComprehensionText
   } else {
     setCookie("language", ENGLISH);
     instruction = dictionary[ENGLISH].instruction;
     introductionMessage = dictionary[ENGLISH].introductionMessage;
+    acknowledgementMessage = dictionary[ENGLISH].acknowledgementMessage
+    personalityTestInformation = dictionary[ENGLISH].personalityTestInformation
+    readingComprehensionInfo = dictionary[ENGLISH].readingComprehensionInfo
+    readingComprehension = dictionary[ENGLISH].readingComprehension
+    readingComprehensionText = dictionary[ENGLISH].readingComprehensionText
   }
 
   return (
@@ -45,6 +53,12 @@ const App = () => {
           exact
           path="/"
           component={() => (
+            <Instruction points={instruction} nextPagePath="/chooseLanguage" />
+          )}
+        />
+        <Route
+          path="/chooseLanguage"
+          component={() => (
             <LanguageChoice
               onLanguageChosen={chooseLanguage}
               nextPagePath="/introductionMessage"
@@ -53,27 +67,38 @@ const App = () => {
         />
         <Route
           path="/introductionMessage"
-          component={() => <Reading text={introductionMessage} nextPagePath="/data" />}
+          component={() => <Reading text={introductionMessage} nextPagePath="/acknowledgementMessage" />}
+        />
+        <Route
+          path="/acknowledgementMessage"
+          component={() => <Reading text={acknowledgementMessage} nextPagePath="/data" />}
         />
         <Route
           path="/data"
-          component={() => (
-            <UserPersonalData
-              language={cookies["language"]}
-              handleData={handleData}
-              nextPagePath="/instruction"
-            />
-          )}
+          component={() => <Reading text="TUTAJ SA DANE OSOBOWE" nextPagePath="/personalityTestInformation" />}
+          // component={() => (
+          //   <UserPersonalData
+          //     language={cookies["language"]}
+          //     handleData={handleData}
+          //     nextPagePath="/personalityTestInformation"
+          //   />
+          // )}
         />
         <Route
-          path="/instruction"
-          component={() => (
-            <Instruction points={instruction} nextPagePath="/reading" />
-          )}
+          path="/personalityTestInformation"
+          component={() => <Reading text={personalityTestInformation} nextPagePath="/readingComprehensionInfo" />}
         />
         <Route
-          path="/reading"
-          component={() => <Reading text={text} nextPagePath="/quiz" />}
+          path="/readingComprehensionInfo"
+          component={() => <Reading text={readingComprehensionInfo} nextPagePath="/readingComprehension" />}
+        />
+        <Route
+          path="/readingComprehension"
+          component={() => <Reading text={readingComprehension} nextPagePath="/readingComprehensionText" />}
+        />
+        <Route
+          path="/readingComprehensionText"
+          component={() => <Reading text={readingComprehensionText} nextPagePath="/quiz" />}
         />
         <Route
           path="/quiz"

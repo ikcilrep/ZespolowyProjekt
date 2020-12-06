@@ -23,12 +23,12 @@ const Reading = ({ text, nextPagePath }) => {
   return (
     <>
       <div className="reading centered" style={{ color: "black" }}>
-        <Typography variant="h6" component="h5">
+        <Typography style={{whiteSpace: 'pre-line'}} variant="body" component="body" gutterBottom>
           {text}
         </Typography>
         <Box textAlign='center'>
           <Button onClick={handleClick} size="large" variant="contained" color="secondary" >
-            == OK ==
+            OK                 
           </Button>
         </Box>
       </div>
