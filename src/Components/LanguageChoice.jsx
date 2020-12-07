@@ -24,7 +24,6 @@ const LanguageChoice = ({ onLanguageChosen, nextPagePath }) => {
 
 
   const handleClick = (language) => {
-    setUserDataInfo({ lang: language });
     setLanguage(language);
     setUserDataInfo({ lang: language });
     setRedirect(true);
@@ -40,7 +39,7 @@ const LanguageChoice = ({ onLanguageChosen, nextPagePath }) => {
         <ButtonGroup
           size="large"
           variant="contained"
-          color="secondary"
+          color="primary"
           aria-label="contained primary button group"
         >
           <Button onClick={() => handleClick(POLISH)}>{POLISH}</Button>

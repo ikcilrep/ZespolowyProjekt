@@ -4,14 +4,12 @@ import Error404 from "./Components/Error404";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Reading from "./Components/Reading";
-import Instruction from "./Components/Instruction";
 import Quiz from "./Components/Quiz";
 import PersonalityTest from "./Components/PersonalityTest";
 import Game from "./Components/Game";
 import UserPersonalData from "./Components/UserPersonalData";
 import { useCookies } from "react-cookie";
 import dictionary from "./dictionary.json";
-import AppContext from "./Components/AppContext"
 import Store from "./Store";
 
 
@@ -19,13 +17,6 @@ const App = () => {
   const [cookies, setCookie] = useCookies(["language"]);
   const [language, setLanguage] = useState(ENGLISH);
   const [personalityTestAnswers, setPersonalityTestAnswers] = useState({});
-
-  const userState = {
-    language, setLanguage,
-    personalityTestAnswers, setPersonalityTestAnswers
-  };
-
-  console.log('STATE: ', userState)
 
   const chooseLanguage = (language) => {
     setCookie("language", language);
@@ -62,7 +53,7 @@ const App = () => {
   }
 
   return (
-  <AppContext.Provider value={userState}>
+  <Store>
   <BrowserRouter>
       <Switch>
         <Route
@@ -144,7 +135,7 @@ const App = () => {
         <Route component={Error404} />
       </Switch>
     </BrowserRouter>
-  </AppContext.Provider>
+    </Store>
   );
 };
 
