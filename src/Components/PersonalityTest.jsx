@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import "./PersonalityTest.css";
 import { Button } from "@material-ui/core";
 import dictionary from "../dictionary.json";
-import AppContext from "./AppContext";
+import { Context } from "../Store";
 
 
 const getQuestions = (language) => {
@@ -49,10 +49,16 @@ const PersonalityTest = ({ nextPagePath, language }) => {
   const [score, setScore] = useState(0);
 
 
-  const {personalityTestAnswers, setPersonalityTestAnswers} = useContext(AppContext);
+  const [state, dispatch] = useContext(Context);
   const questions = getQuestions(language);
 
-
+  useEffect(() => {
+    if (currentAnswer !== null) {
+      dispatch({ type: `ADD_ANSWEAR`, payload: currentAnswer });
+    }
+  }, [currentAnswer]);
+  
+  
   if (redirect) {
     return <Redirect to={nextPagePath} />;
   }
@@ -102,7 +108,7 @@ const PersonalityTest = ({ nextPagePath, language }) => {
                     handleAnswerOptionClick(questions[currentQuestion].questionText, answerOption.questionNumber)
                   }
                   variant="contained"
-                  color="primary"
+                  color="secondary"
                   aria-label="large outlined primary button group"
                 >
                   {answerOption.answerText}

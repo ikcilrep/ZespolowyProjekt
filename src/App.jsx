@@ -12,6 +12,7 @@ import UserPersonalData from "./Components/UserPersonalData";
 import { useCookies } from "react-cookie";
 import dictionary from "./dictionary.json";
 import AppContext from "./Components/AppContext"
+import Store from "./Store";
 
 
 const App = () => {
