@@ -161,7 +161,7 @@ export default function Balloon({
   return (
     <div>
       <Button onClick={handleResign} variant="contained" color="primary">
-        {thereIsANextBalloon ? dictionary[language].next : "OKaaaaay TAKE MY MONEY BRUV"}
+        {thereIsANextBalloon ? dictionary[language].next : dictionary[language].takeMoney}
       </Button>
 
       <div

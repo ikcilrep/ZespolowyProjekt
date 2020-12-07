@@ -15,42 +15,6 @@ const getQuestions = (language) => {
         { answerText: dictionary[language].answers1[3], isCorrect: false },
       ],
     },
-    {
-      questionText: dictionary[language].question2,
-      answerOptions: [
-        { answerText: "Jeff Bezos", isCorrect: false },
-        { answerText: "Elon Musk", isCorrect: true },
-        { answerText: "Bill Gates", isCorrect: false },
-        { answerText: "Tony Stark", isCorrect: false },
-      ],
-    },
-    {
-      questionText: dictionary[language].question3,
-      answerOptions: [
-        { answerText: "Apple", isCorrect: true },
-        { answerText: "Intel", isCorrect: false },
-        { answerText: "Amazon", isCorrect: false },
-        { answerText: "Microsoft", isCorrect: false },
-      ],
-    },
-    {
-      questionText: dictionary[language].question4,
-      answerOptions: [
-        { answerText: "1", isCorrect: false },
-        { answerText: "4", isCorrect: false },
-        { answerText: "6", isCorrect: false },
-        { answerText: "7", isCorrect: true },
-      ],
-    },
-    {
-      questionText: dictionary[language].question5,
-      answerOptions: [
-        { answerText: dictionary[language].answers5[0], isCorrect: false },
-        { answerText: dictionary[language].answers5[1], isCorrect: false },
-        { answerText: dictionary[language].answers5[2], isCorrect: false },
-        { answerText: dictionary[language].answers5[3], isCorrect: true },
-      ],
-    },
   ];
 
   return questions;
@@ -89,7 +53,7 @@ export default function Quiz({ nextPagePath, language }) {
             <Button
               onClick={() => setRedirect(true)}
               variant="contained"
-              color="secondary"
+              color="primary"
               id="confirmbutton"
             >
             OK
@@ -112,7 +76,7 @@ export default function Quiz({ nextPagePath, language }) {
                     handleAnswerOptionClick(answerOption.isCorrect)
                   }
                   variant="contained"
-                  color="secondary"
+                  color="primary"
                 >
                   {answerOption.answerText}
                 </Button>

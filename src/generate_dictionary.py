@@ -29,10 +29,41 @@ questions = """1. Planeo las tareas cuidadosamente.  4 3  2 1
 29. Me gustan los puzzles.
 30. Hago planes para el futuro."""
 
+questions2="""1 I plan tasks carefully. 
+2 I do things without thinking. 
+3 I make-up my mind quickly. 
+4 I am happy-go-lucky. 
+5 I don’t “pay attention.” 
+6 I have “racing” thoughts. 
+7 I plan trips well ahead of time. 
+8 I am self controlled. 
+9 I concentrate easily. 
+10 I save regularly. 
+11 I “squirm” at plays or lectures. 
+12 I am a careful thinker. 
+13 I plan for job security. 
+14 I say things without thinking. 
+15 I like to think about complex problems. 
+16 I change jobs. 
+17 I act “on impulse.” 
+18 I get easily bored when solving thought problems. 
+19 I act on the spur of the moment. 
+20 I am a steady thinker. 
+21 I change residences. 
+22 I buy things on impulse. 
+23 I can only think about one thing at a time. 
+24 I change hobbies. 
+25 I spend or charge more than I earn. 
+26 I often have extraneous thoughts when thinking. 
+27 I am more interested in the present than the future.
+28 I am restless at the theater or lectures. 
+29 I like puzzles. 
+30 I am future oriented."""
+
 
 if __name__ == "__main__":
-    questions = questions.split('\n')
+    questions = questions2.split('\n')
     for i, question in enumerate(questions):
-        formated_question = question.split('.')[1].strip()
-        formated_question = f'\"personalityTestQuestion{i + 1}\" : \"{formated_question}.\",'
+        formated_question = question[question.find('I'):].strip()
+        formated_question = f'\"personalityTestQuestion{i + 1}\" : \"{formated_question}\",'
         print(formated_question)

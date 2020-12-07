@@ -47,7 +47,7 @@ body {
 
 .box {
   border-radius: 7px;
-  background: #596d82;
+  background: #007bff;
   position: absolute;
   left: 200pt;
   top: 90pt;
@@ -92,7 +92,7 @@ body {
 
 .balloon {
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  background: #86a1ca;
+  background: #ad2222;
   position: absolute;
   left: 535px;
   top: 120px;
@@ -106,8 +106,8 @@ body {
   opacity: 0.3;
   position: absolute;
   left: 200px;
-  top: 170pt;
-  width: 600px;
+  top: 172pt;
+  width: 800px;
   height: 50px;
   border-radius: 100%;
 }

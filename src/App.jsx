@@ -11,19 +11,21 @@ import UserPersonalData from "./Components/UserPersonalData";
 import { useCookies } from "react-cookie";
 import dictionary from "./dictionary.json";
 import Store from "./Store";
-
+import { Context } from "./Store";
 
 const App = () => {
   const [cookies, setCookie] = useCookies(["language"]);
   const [language, setLanguage] = useState(ENGLISH);
   const [personalityTestAnswers, setPersonalityTestAnswers] = useState({});
 
+
   const chooseLanguage = (language) => {
     setCookie("language", language);
   };
 
+  
   const handleData = ({ firstName, lastName, age, sex }) => {
-    // do something with data
+    // do smth with data
   };
 
   const handleEarnedMoney = (amount) => {};

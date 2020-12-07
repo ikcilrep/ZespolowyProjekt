@@ -42,7 +42,7 @@ const getQuestions = (language) => {
 
 const PersonalityTest = ({ nextPagePath, language }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [currentAnswer, setCurrentAnswer] = useState(2);
+  const [currentAnswer, setCurrentAnswer] = useState(null);
 
   const [showScore, setShowScore] = useState(false);
   const [redirect, setRedirect] = useState(false);
@@ -67,6 +67,7 @@ const PersonalityTest = ({ nextPagePath, language }) => {
   const handleAnswerOptionClick = (questionText, questionNumber) => {
 
     console.log('Q&A: ', questionText, questionNumber)
+    setCurrentAnswer({ questionText, questionNumber });
     const nextQuestion = currentQuestion + 1;
 
     if (nextQuestion < questions.length) {
@@ -85,7 +86,7 @@ const PersonalityTest = ({ nextPagePath, language }) => {
             <Button
               onClick={() => setRedirect(true)}
               variant="contained"
-              color="secondary"
+              color="primary"
               id="confirmbutton"
             >
             OK
@@ -108,7 +109,7 @@ const PersonalityTest = ({ nextPagePath, language }) => {
                     handleAnswerOptionClick(questions[currentQuestion].questionText, answerOption.questionNumber)
                   }
                   variant="contained"
-                  color="secondary"
+                  color="primary"
                   aria-label="large outlined primary button group"
                 >
                   {answerOption.answerText}

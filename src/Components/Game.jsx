@@ -29,15 +29,15 @@ const Game = ({ language, handleEarnedMoney }) => {
   if (baloonNumber < NUMBER_OF_BALLOONS + 1) {
     return (
       <div >
-        <h3>
+        <h1>
           {dictionary[language].collectedMoney}: {collectedMoney}$
-        </h3>
-        <h4>
+        </h1>
+        <h2>
           {dictionary[language].expectedPrize}: {prize}$
-        </h4>
-        <h5>
-          {baloonNumber}/{NUMBER_OF_BALLOONS}
-        </h5>
+        </h2>
+        <h3>
+         {dictionary[language].expectedBalloons} : {baloonNumber + 1} / {NUMBER_OF_BALLOONS}
+        </h3>
         <Balloon
           numberOfBaloons={NUMBER_OF_BALLOONS + 1}
           number={baloonNumber}
