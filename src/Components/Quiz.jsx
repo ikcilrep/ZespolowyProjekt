@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import "./Quiz.css";
 import { Button } from "@material-ui/core";
 import dictionary from "../dictionary.json";
+import { Context } from "../Store";
+
 
 const getQuestions = (language) => {
   const questions = [
     {
       questionText: dictionary[language].question1,
       answerOptions: [
-        { answerText: dictionary[language].answers1[0], isCorrect: false },
-        { answerText: dictionary[language].answers1[1], isCorrect: false },
-        { answerText: dictionary[language].answers1[2], isCorrect: true },
-        { answerText: dictionary[language].answers1[3], isCorrect: false },
+        { answerText: dictionary[language].answers1[0], questionNumber: 1 },
+        { answerText: dictionary[language].answers1[1], questionNumber: 2 },
+        { answerText: dictionary[language].answers1[2], questionNumber: 3 },
+        { answerText: dictionary[language].answers1[3], questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].question2,
+      answerOptions: [
+        { answerText: dictionary[language].answers1[0], questionNumber: 1 },
+        { answerText: dictionary[language].answers1[1], questionNumber: 2 },
+        { answerText: dictionary[language].answers1[2], questionNumber: 3 },
+        { answerText: dictionary[language].answers1[3], questionNumber: 4 },
       ],
     },
   ];
@@ -25,16 +36,24 @@ export default function Quiz({ nextPagePath, language }) {
   const [showScore, setShowScore] = useState(false);
   const [redirect, setRedirect] = useState(false);
   const [score, setScore] = useState(0);
+  const [currentAnswer, setCurrentAnswer] = useState(null);
 
+  const [state, dispatch] = useContext(Context);
   const questions = getQuestions(language);
+
+  useEffect(() => {
+    if (currentAnswer !== null) {
+      dispatch({ type: `ADD_ANSWEAR2`, payload: currentAnswer });
+    }
+  }, [currentAnswer]);
+
 
   if (redirect) {
     return <Redirect to={nextPagePath} />;
   }
-  const handleAnswerOptionClick = (isCorrect) => {
-    if (isCorrect) {
-      setScore(score + 1);
-    }
+  const handleAnswerOptionClick = (questionText, questionNumber) => {
+    console.log(questionText, ' ==> ',  questionNumber)
+    setCurrentAnswer({ questionText, questionNumber });
 
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
@@ -43,6 +62,7 @@ export default function Quiz({ nextPagePath, language }) {
       setShowScore(true);
     }
   };
+
 
   return (
     <div className="quiz">
@@ -73,7 +93,7 @@ export default function Quiz({ nextPagePath, language }) {
               {questions[currentQuestion].answerOptions.map((answerOption) => (
                 <Button
                   onClick={() =>
-                    handleAnswerOptionClick(answerOption.isCorrect)
+                    handleAnswerOptionClick(questions[currentQuestion].questionText, answerOption.answerText)
                   }
                   variant="contained"
                   color="primary"

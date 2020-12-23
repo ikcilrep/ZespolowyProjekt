@@ -4,6 +4,8 @@ import Reducer from "./Reducer";
 const initialState = {
   language: "English",
   answears: [],
+  answears2: [],
+  balloon: []
 };
 
 const Store = ({ children }) => {

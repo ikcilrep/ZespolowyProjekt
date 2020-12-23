@@ -1,8 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import Button from "@material-ui/core/Button";
 import "./Balloon.css";
 import "./LanguageChoice.css";
 import dictionary from "../dictionary.json";
+import { Context } from "../Store";
 
 const setInitialBalloonStyle = (balloonRef) => {
   setBalloonStyle({
@@ -125,8 +126,9 @@ export default function Balloon({
 
 
   const balloonDurabilityArray = [1, 2, 3, 4, 5]
-
+ 
   const handleClick = (balloonNumber) => {
+
     if (!disabled && !pumpDisabled) {
       setPumpDisabled(true); 
       setPump(1);
@@ -139,10 +141,8 @@ export default function Balloon({
         setPumps(pumps + 1);
         balloonPump(balloonRef, 20);
       }
-    } else {
-      // console.log('byl disabled')
     }
-    };
+  };
 
   const handleAnimationEnd = () => {
     setPumpDisabled(false);

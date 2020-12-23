@@ -4,6 +4,7 @@ import Error404 from "./Components/Error404";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Reading from "./Components/Reading";
+import Finalize from "./Components/Finalize"
 import Quiz from "./Components/Quiz";
 import PersonalityTest from "./Components/PersonalityTest";
 import Game from "./Components/Game";
@@ -32,7 +33,7 @@ const App = () => {
 
   let instruction, introductionMessage, acknowledgementMessage, personalityTestInformation;
   let readingComprehensionInfo, readingComprehension, readingComprehensionText;
-  let balloonGameInfo, beforeRealGameInfo;
+  let balloonGameInfo, beforeRealGameInfo, summary;
   if (cookies["language"]) {
     instruction = dictionary[cookies["language"]].instruction;
     introductionMessage = dictionary[cookies["language"]].introductionMessage;
@@ -43,6 +44,7 @@ const App = () => {
     readingComprehensionText = dictionary[cookies["language"]].readingComprehensionText;
     balloonGameInfo = dictionary[cookies["language"]].balloonGameInfo;
     beforeRealGameInfo = dictionary[cookies["language"]].beforeRealGameInfo;
+    summary = dictionary[cookies["language"]].summary;
   } else {
     setCookie("language", ENGLISH);
     instruction = dictionary[ENGLISH].instruction;
@@ -54,6 +56,7 @@ const App = () => {
     readingComprehensionText = dictionary[ENGLISH].readingComprehensionText;
     balloonGameInfo = dictionary[ENGLISH].balloonGameInfo;
     beforeRealGameInfo = dictionary[ENGLISH].beforeRealGameInfo;
+    summary = dictionary[ENGLISH].summary;
   }
 
   return (
@@ -69,7 +72,7 @@ const App = () => {
               nextPagePath="/introductionMessage"
             />
           )}
-        />
+        /> 
         <Route
           path="/introductionMessage"
           component={() => <Reading text={introductionMessage} nextPagePath="/acknowledgementMessage" />}
@@ -80,7 +83,6 @@ const App = () => {
         />
         <Route
           path="/data"
-          component={() => <Reading text="TUTAJ SA DANE OSOBOWE" nextPagePath="/personalityTestInformation" />}
           component={() => (
             <UserPersonalData
               language={cookies["language"]}
@@ -147,8 +149,13 @@ const App = () => {
             <Game
               handleEarnedMoney={handleEarnedMoney}
               language={cookies["language"]}
+              nextPagePath="/end"
             />
           )}
+        />
+        <Route
+          path="/end"
+          component={() => <Finalize text={summary} />}
         />
         <Route component={Error404} />
       </Switch>

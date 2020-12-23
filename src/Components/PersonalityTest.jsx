@@ -349,7 +349,7 @@ const PersonalityTest = ({ nextPagePath, language }) => {
               {questions[currentQuestion].answerOptions.map((answerOption) => (
                 <Button
                   onClick={() =>
-                    handleAnswerOptionClick(questions[currentQuestion].questionText, answerOption.questionNumber)
+                    handleAnswerOptionClick(questions[currentQuestion].questionText, answerOption.answerText)
                   }
                   variant="contained"
                   color="primary"

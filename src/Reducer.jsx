@@ -11,6 +11,24 @@ const Reducer = (state, action) => {
           ...state,
           answears: state.answears.concat(action.payload),
         };
+
+      case `ADD_USER_DATA`:
+        return {
+          ...state,
+          user_data: action.payload,
+        };
+
+      case `ADD_ANSWEAR2`:
+        return {
+          ...state,
+          answears2: state.answears2.concat(action.payload),
+        };
+
+      case `ADD_BALLOON`:
+        return {
+          ...state,
+          balloon: state.balloon.concat(action.payload),
+        };
   
       default:
         return state;

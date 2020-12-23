@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Balloon from "./Balloon";
 import dictionary from "../dictionary.json";
 import Box from '@material-ui/core/Box';
 import { Button, Typography } from "@material-ui/core";
 import { Redirect } from "react-router-dom";
-
+import { Context } from "../Store"
 
 const NUMBER_OF_BALLOONS = 5;
 
@@ -15,6 +15,12 @@ const Game = ({ language, handleEarnedMoney, nextPagePath }) => {
   const [baloonNumber, setBaloonNumber] = useState(0);
 
   const MONEY_FOR_PUMP = 5;
+
+  const [state, dispatch] = useContext(Context);
+
+  useEffect(() => {
+    dispatch({ type: `ADD_BALLOON`, payload: {baloonNumber, prize, collectedMoney} });
+  }, [baloonNumber, prize, collectedMoney]);
 
   const handleClick = () => {
     setRedirect(true);
