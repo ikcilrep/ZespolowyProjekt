@@ -1,7 +1,7 @@
 ## Webpage
 https://risktester.netlify.app/
 
-![Balloon](/Images/balloon.png)
+![Balloon](src/Images/balloon.png)
 
 ## Available Scripts
 
