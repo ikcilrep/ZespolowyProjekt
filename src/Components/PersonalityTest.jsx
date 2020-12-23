@@ -35,6 +35,249 @@ const getQuestions = (language) => {
         { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
       ],
     },
+    {
+      questionText: dictionary[language].personalityTestQuestion4,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion5,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion6,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion7,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion8,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion9,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion10,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion11,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion12,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion13,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion14,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion15,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion16,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion17,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion18,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion19,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion20,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion21,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion22,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion23,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion24,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion25,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion26,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion27,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion28,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion29,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
+    {
+      questionText: dictionary[language].personalityTestQuestion30,
+      answerOptions: [
+        { answerText: dictionary[language].personalityTestAnswer1, questionNumber: 1 },
+        { answerText: dictionary[language].personalityTestAnswer2, questionNumber: 2 },
+        { answerText: dictionary[language].personalityTestAnswer3, questionNumber: 3 },
+        { answerText: dictionary[language].personalityTestAnswer4, questionNumber: 4 },
+      ],
+    },
   ];
 
   return questions;

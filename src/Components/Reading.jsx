@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Button, Typography } from "@material-ui/core";
 import { Redirect } from "react-router-dom";
 import SaveIcon from '@material-ui/icons/Save';
@@ -7,6 +7,7 @@ import Box from '@material-ui/core/Box';
 
 import "./LanguageChoice.css";
 import "./Reading.css";
+
 
 const Reading = ({ text, nextPagePath }) => {
   const [redirect, setRedirect] = useState(false);
@@ -22,7 +23,9 @@ const Reading = ({ text, nextPagePath }) => {
 
   return (
     <>
-      <div className="reading centered" style={{ color: "black" }}>
+      <div className="reading centered" style={{
+        color: "black", overflowY: 'scroll', height: "500px", width: "auto"
+        }}>
         <Typography  style={{whiteSpace: 'pre-line'}} variant="h5" gutterBottom>
           {text}
         </Typography>

@@ -1,15 +1,28 @@
 import React, { useState } from "react";
 import Balloon from "./Balloon";
 import dictionary from "../dictionary.json";
+import Box from '@material-ui/core/Box';
+import { Button, Typography } from "@material-ui/core";
+import { Redirect } from "react-router-dom";
+
 
 const NUMBER_OF_BALLOONS = 5;
 
-const Game = ({ language, handleEarnedMoney }) => {
+const Game = ({ language, handleEarnedMoney, nextPagePath }) => {
+  const [redirect, setRedirect] = useState(false);
   const [collectedMoney, setCollectedMoney] = useState(0);
   const [prize, setPrize] = useState(0);
   const [baloonNumber, setBaloonNumber] = useState(0);
 
   const MONEY_FOR_PUMP = 5;
+
+  const handleClick = () => {
+    setRedirect(true);
+  };
+
+  if (redirect) {
+    return <Redirect to={nextPagePath} />;
+  }
 
   const onSuccessfulPump = () => {
     setPrize(prize + MONEY_FOR_PUMP);
@@ -26,7 +39,7 @@ const Game = ({ language, handleEarnedMoney }) => {
     setBaloonNumber(baloonNumber + 1);
   };
 
-  if (baloonNumber < NUMBER_OF_BALLOONS + 1) {
+  if (baloonNumber < NUMBER_OF_BALLOONS) {
     return (
       <div >
         <h1>
@@ -55,6 +68,11 @@ const Game = ({ language, handleEarnedMoney }) => {
         <h1>
           {dictionary[language].collectedMoney}: {collectedMoney}$
         </h1>
+        <Box textAlign='center'>
+          <Button onClick={handleClick} size="large" variant="contained" color="primary" >
+            OK
+          </Button>
+        </Box>
       </div>
     );
   }

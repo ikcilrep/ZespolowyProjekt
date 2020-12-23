@@ -10,8 +10,8 @@ const setInitialBalloonStyle = (balloonRef) => {
     width: 30,
     height: 42,
     borderRadius: "50% 50% 50% 50% / 40% 40% 60% 60%",
-    left: 555,
-    top: 180,
+    left: 425,
+    top: 170,
     opacity: 1,
   });
 };

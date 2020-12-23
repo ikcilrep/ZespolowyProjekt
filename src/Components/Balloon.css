@@ -13,7 +13,7 @@ body {
 
 .container {
   position: relative;
-  top: 50vh;
+  top: 10vh;
 }
 
 .container[pump="1"] {
@@ -23,7 +23,7 @@ body {
 .stick1 {
   background: #313750;
   position: absolute;
-  left: 217pt;
+  left: 117pt;
   width: 65pt;
   height: 10pt;
   border-radius: 3px;
@@ -36,7 +36,7 @@ body {
 .stick2 {
   background: #313750;
   position: absolute;
-  left: 245pt;
+  left: 145pt;
   width: 10pt;
   height: 90pt;
 }
@@ -49,7 +49,7 @@ body {
   border-radius: 7px;
   background: #007bff;
   position: absolute;
-  left: 200pt;
+  left: 100pt;
   top: 90pt;
   width: 100pt;
   height: 100pt;
@@ -57,7 +57,7 @@ body {
 
 .stamp-balloon {
   position: absolute;
-  left: 230pt;
+  left: 130pt;
   top: 100pt;
   width: 63px;
   height: 90px;
@@ -70,7 +70,7 @@ body {
   width: 0;
   height: 0;
   position: absolute;
-  left: 240pt;
+  left: 140pt;
   top: 163pt;
   border-bottom: 12px solid #d29a95;
   border-left: 10px solid transparent;
@@ -80,7 +80,7 @@ body {
 
 .hose {
   position: absolute;
-  left: 380px;
+  left: 250px;
   top: 120px;
   width: 200px;
   height: 100px;
@@ -94,7 +94,7 @@ body {
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
   background: #ad2222;
   position: absolute;
-  left: 535px;
+  left: 335px;
   top: 120px;
   width: 30px;
   height: 30px;
@@ -105,7 +105,7 @@ body {
   background-color: gray;
   opacity: 0.3;
   position: absolute;
-  left: 200px;
+  left: 0px;
   top: 172pt;
   width: 800px;
   height: 50px;

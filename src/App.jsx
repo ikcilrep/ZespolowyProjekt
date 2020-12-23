@@ -32,7 +32,7 @@ const App = () => {
 
   let instruction, introductionMessage, acknowledgementMessage, personalityTestInformation;
   let readingComprehensionInfo, readingComprehension, readingComprehensionText;
-  let balloonGameInfo;
+  let balloonGameInfo, beforeRealGameInfo;
   if (cookies["language"]) {
     instruction = dictionary[cookies["language"]].instruction;
     introductionMessage = dictionary[cookies["language"]].introductionMessage;
@@ -42,6 +42,7 @@ const App = () => {
     readingComprehension = dictionary[cookies["language"]].readingComprehension;
     readingComprehensionText = dictionary[cookies["language"]].readingComprehensionText;
     balloonGameInfo = dictionary[cookies["language"]].balloonGameInfo;
+    beforeRealGameInfo = dictionary[cookies["language"]].beforeRealGameInfo;
   } else {
     setCookie("language", ENGLISH);
     instruction = dictionary[ENGLISH].instruction;
@@ -52,6 +53,7 @@ const App = () => {
     readingComprehension = dictionary[ENGLISH].readingComprehension;
     readingComprehensionText = dictionary[ENGLISH].readingComprehensionText;
     balloonGameInfo = dictionary[ENGLISH].balloonGameInfo;
+    beforeRealGameInfo = dictionary[ENGLISH].beforeRealGameInfo;
   }
 
   return (
@@ -123,7 +125,21 @@ const App = () => {
         />
         <Route
           path="/balloonGameInfo"
-          component={() => <Reading text={balloonGameInfo} nextPagePath="/game" />}
+          component={() => <Reading text={balloonGameInfo} nextPagePath="/tutorialGame" />}
+        />
+        <Route
+          path="/tutorialGame"
+          component={() => (
+            <Game
+              handleEarnedMoney={handleEarnedMoney}
+              language={cookies["language"]}
+              nextPagePath="/beforeRealGame"
+            />
+          )}
+        />
+        <Route
+          path="/beforeRealGame"
+          component={() => <Reading text={beforeRealGameInfo} nextPagePath="/game" />}
         />
         <Route
           path="/game"

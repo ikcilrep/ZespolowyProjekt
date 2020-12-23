@@ -63,7 +63,7 @@ export default function Quiz({ nextPagePath, language }) {
           <>
             <div className="question-section">
               <div className="question-count">
-                <span>Question {currentQuestion + 1}</span>/{questions.length}
+                <span>{currentQuestion + 1}</span>/{questions.length}
               </div>
               <div className="question-text">
                 {questions[currentQuestion].questionText}
