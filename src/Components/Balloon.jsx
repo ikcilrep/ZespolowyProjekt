@@ -150,10 +150,12 @@ export default function Balloon({
   };
 
   const handleResign = () => {
-    setDisabled(true);
-    setPumps(0);
-    balloonResign(balloonRef, setDisabled);
-    onResign();
+    if (!disabled && !pumpDisabled) {
+      setDisabled(true);
+      setPumps(0);
+      balloonResign(balloonRef, setDisabled);
+      onResign();
+    }
   };
 
   const thereIsANextBalloon = number < numberOfBalloons - 1;
