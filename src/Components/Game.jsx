@@ -5,6 +5,7 @@ import Box from '@material-ui/core/Box';
 import { Button, Typography } from "@material-ui/core";
 import { Redirect } from "react-router-dom";
 import { Context } from "../Store"
+import "./Game.css";
 
 const NUMBER_OF_BALLOONS = 5;
 
@@ -47,7 +48,7 @@ const Game = ({ language, handleEarnedMoney, nextPagePath }) => {
 
   if (baloonNumber < NUMBER_OF_BALLOONS) {
     return (
-      <div >
+      <div className="game">
         <h1>
           {dictionary[language].collectedMoney}: {collectedMoney}$
         </h1>
