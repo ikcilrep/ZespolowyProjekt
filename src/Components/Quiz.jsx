@@ -14,16 +14,38 @@ const getQuestions = (language) => {
         { answerText: dictionary[language].answers1[0], questionNumber: 1 },
         { answerText: dictionary[language].answers1[1], questionNumber: 2 },
         { answerText: dictionary[language].answers1[2], questionNumber: 3 },
-        { answerText: dictionary[language].answers1[3], questionNumber: 4 },
       ],
     },
     {
       questionText: dictionary[language].question2,
       answerOptions: [
-        { answerText: dictionary[language].answers1[0], questionNumber: 1 },
-        { answerText: dictionary[language].answers1[1], questionNumber: 2 },
-        { answerText: dictionary[language].answers1[2], questionNumber: 3 },
-        { answerText: dictionary[language].answers1[3], questionNumber: 4 },
+        { answerText: dictionary[language].answers2[0], questionNumber: 1 },
+        { answerText: dictionary[language].answers2[1], questionNumber: 2 },
+        { answerText: dictionary[language].answers2[2], questionNumber: 3 },
+      ],
+    },
+    {
+      questionText: dictionary[language].question3,
+      answerOptions: [
+        { answerText: dictionary[language].answers3[0], questionNumber: 1 },
+        { answerText: dictionary[language].answers3[1], questionNumber: 2 },
+        { answerText: dictionary[language].answers3[2], questionNumber: 3 },
+      ],
+    },
+    {
+      questionText: dictionary[language].question4,
+      answerOptions: [
+        { answerText: dictionary[language].answers4[0], questionNumber: 1 },
+        { answerText: dictionary[language].answers4[1], questionNumber: 2 },
+        { answerText: dictionary[language].answers4[2], questionNumber: 3 },
+      ],
+    },
+    {
+      questionText: dictionary[language].question5,
+      answerOptions: [
+        { answerText: dictionary[language].answers5[0], questionNumber: 1 },
+        { answerText: dictionary[language].answers5[1], questionNumber: 2 },
+        { answerText: dictionary[language].answers5[2], questionNumber: 3 },
       ],
     },
   ];
