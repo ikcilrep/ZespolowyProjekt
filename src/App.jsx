@@ -133,6 +133,7 @@ const App = () => {
           path="/tutorialGame"
           component={() => (
             <Game
+              mode="demo"
               handleEarnedMoney={handleEarnedMoney}
               language={cookies["language"]}
               nextPagePath="/beforeRealGame"
@@ -147,6 +148,7 @@ const App = () => {
           path="/game"
           component={() => (
             <Game
+              mode="real"
               handleEarnedMoney={handleEarnedMoney}
               language={cookies["language"]}
               nextPagePath="/end"

@@ -9,7 +9,7 @@ import "./Game.css";
 
 const NUMBER_OF_BALLOONS = 5;
 
-const Game = ({ language, handleEarnedMoney, nextPagePath }) => {
+const Game = ({ mode, language, handleEarnedMoney, nextPagePath }) => {
   const [redirect, setRedirect] = useState(false);
   const [collectedMoney, setCollectedMoney] = useState(0);
   const [prize, setPrize] = useState(0);
@@ -59,6 +59,7 @@ const Game = ({ language, handleEarnedMoney, nextPagePath }) => {
          {dictionary[language].expectedBalloons} : {baloonNumber + 1} / {NUMBER_OF_BALLOONS}
         </h3>
         <Balloon
+          mode={mode}
           numberOfBaloons={NUMBER_OF_BALLOONS + 1}
           number={baloonNumber}
           onSuccessfulPump={onSuccessfulPump}

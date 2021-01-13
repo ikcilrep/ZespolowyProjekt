@@ -11,7 +11,7 @@ const setInitialBalloonStyle = (balloonRef) => {
     width: 30,
     height: 42,
     borderRadius: "50% 50% 50% 50% / 40% 40% 60% 60%",
-    left: 425,
+    left: 225,
     top: 170,
     opacity: 1,
   });
@@ -101,6 +101,7 @@ const balloonResign = (balloonRef, setDisabled) => {
 };
 
 export default function Balloon({
+  mode,
   language,
   onSuccessfulPump,
   onExplosion,
@@ -125,14 +126,19 @@ export default function Balloon({
   }, [])
 
 
-  const balloonDurabilityArray = [1, 2, 3, 4, 5]
- 
+  const balloonDurabilityArrayDemo = [3, 1, 4, 3, 5]
+  const balloonDurabilityArray = [3, 1, 2, 5, 4]
+
   const handleClick = (balloonNumber) => {
 
     if (!disabled && !pumpDisabled) {
       setPumpDisabled(true); 
       setPump(1);
-      if (pumps >= balloonDurabilityArray[balloonNumber]) {
+      let actArr = []
+      if(mode == "demo") actArr = [...balloonDurabilityArrayDemo]
+      else actArr = [...balloonDurabilityArray]
+
+      if (pumps >= actArr[balloonNumber]) {
         balloonPop(balloonRef);
         setPumps(0);
         onExplosion();
