@@ -1,8 +1,9 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import Button from "@material-ui/core/Button";
 import dictionary from "../dictionary.json";
+import { Context } from "../Store";
 import "./UserPersonalData.css";
 
 const MAN = "Man";
@@ -10,31 +11,31 @@ const WOMAN = "Woman";
 const OTHER = "Other";
 
 const UserPersonalData = ({ handleData, nextPagePath, language }) => {
-  const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState(0);
-  const [sex, setSex] = useState("");
+  const [sex, setSex] = useState(dictionary[language].Man);
   const [redirect, setRedirect] = useState(false);
 
   const handleClick = () => {
-    handleData({ firstName, lastName, age, sex });
+    handleData({ lastName, age, sex });
     setRedirect(true);
   };
+
+  const [state, dispatch] = useContext(Context);
+  useEffect(() => {
+    if (age !== null && sex !== null && lastName !== null) {
+      dispatch({ type: `ADD_USER_DATA`, payload: [age, sex, lastName] });
+    }
+  }, [age, sex, lastName]);
 
   if (redirect) {
     return <Redirect to={nextPagePath} />;
   }
 
   return (
-    <div style={{ color: "black" }} id="personaldataform" className="centered">
-      <div style={{ width: "75%" }}>
+    <div style={{ color: "black" }} id="personaldataform" className="centered" >
+      <div style={{ width: "75%" }} >
         <label>
-          {dictionary[language].FirstName}:
-          <input
-            onChange={(e) => setFirstName(e.target.value)}
-            type="text"
-            name="name"
-          />
           {dictionary[language].LastName}:
           <input
             onChange={(e) => setLastName(e.target.value)}
@@ -54,9 +55,11 @@ const UserPersonalData = ({ handleData, nextPagePath, language }) => {
             <option value={OTHER}>{dictionary[language].Other}</option>
           </select>
         </label>
-        <Button onClick={handleClick} variant="contained" color="secondary">
-          Ok
-        </Button>
+        <div>
+          <Button onClick={handleClick} variant="contained" color="primary">
+            OK
+          </Button>
+        </div>
       </div>
     </div>
   );
